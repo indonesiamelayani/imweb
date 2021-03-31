@@ -21,7 +21,6 @@ class Template extends CI_Controller
 	 */
 	public function index()
 	{
-		echo "aaaaa";
-		// $this->load->view('welcome_message');
+		$this->load->view('analytic');
 	}
 }
