@@ -4199,7 +4199,7 @@ table.focus-on tbody tr.focused th {
 }
 
 .select2-container-multi .select2-choices {
-	border: 1px solid #border !important;
+	border: 1px solid !important;
 	box-shadow: none !important;
 	background-image: none !important;
 	border-radius: 0 !important;
@@ -5566,7 +5566,8 @@ ul.list-icons li i {
 }
 
 .editable-table+input.error {
-	border: 1px solid #danger;
+	/* #danger  */
+	border: 1px solid;
 	outline: 0;
 	outline-offset: 0
 }
