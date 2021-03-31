@@ -21,6 +21,6 @@ class Template extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->load->view('analytic');
+		$this->load->view('analytic'); ////asd
 	}
 }
