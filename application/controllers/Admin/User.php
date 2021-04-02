@@ -49,7 +49,7 @@ class User extends CI_Controller
             $this->MY_Model->tambah($form_data, $table);
             redirect('admin/user/index');
         } else {
-            echo "File sudah ada";
+            echo "File sudah ada"; //nanti mau dibuat notif
         }
     }
     function hapus()
