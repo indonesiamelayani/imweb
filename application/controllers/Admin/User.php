@@ -6,6 +6,7 @@ class User extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->helper('url');
         $this->load->model('core/MY_Model');
     }
     public function index()
@@ -25,21 +26,31 @@ class User extends CI_Controller
         $email      = $this->input->post('email');
         $password   = password_hash($this->input->post('password'), PASSWORD_BCRYPT, array('cost' => 10));
         $role       = $this->input->post('role');
+        $filename   = implode("|", $_FILES['file']['name']);
+        $temp       = implode("|", $_FILES['file']['tmp_name']);
+        $location   = "files/";
 
-        //input variable to array and prepare to transaction
-        $form_data = array(
-            'nama'      => $nama,
-            'username'  => $username,
-            'email'     => $email,
-            'password'  => $password,
-            'role'      => $role,
-        );
-        $table = 'user';
+        //check agar tidak terjadi duplikasi file
+        $check      = $this->MY_Model->check('user', array('image' => $filename));
 
-        $this->MY_Model->tambah($form_data, $table);
-        redirect('admin/user/index');
-        // var_dump($file);
-        // echo $file;
+        if ($check == FALSE) {
+            //input variable to array and prepare to transaction
+            $form_data = array(
+                'nama'      => $nama,
+                'username'  => $username,
+                'email'     => $email,
+                'password'  => $password,
+                'role'      => $role,
+                'image'     => $filename,
+            );
+            $table = 'user';
+            move_uploaded_file($temp, $location . $filename);
+
+            $this->MY_Model->tambah($form_data, $table);
+            redirect('admin/user/index');
+        } else {
+            echo "File sudah ada";
+        }
     }
     function hapus()
     {

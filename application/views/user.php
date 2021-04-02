@@ -57,10 +57,10 @@
                 <h4 class="modal-title" id="exampleModalLabel">Tambah User</h4>
             </div>
             <div class="modal-body">
-                <form method="post" action="<?php echo base_url() ?>admin/user/tambah">
+                <form method="post" action="<?php echo base_url() ?>admin/user/tambah" enctype="multipart/form-data">
                     <div class="white-box">
                         <h3 class="box-title">Unggah Foto Profil</h3>
-                        <input type="file" id="input-file-now" name="files[]" accept=".jpg,.jpeg.,png" class="dropify" />
+                        <input type="file" id="input-file-now" name="file[]" accept=".jpg,.jpeg.,png" class="dropify" data-max-file-size="2M" />
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="example-email">Nama :</label>
