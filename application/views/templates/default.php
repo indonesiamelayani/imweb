@@ -9,12 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/plugins/images/favicon.png">
-    <title>Cubic Admin Template</title>
+    <title>Indonesia Melayani</title>
     <!-- ===== Bootstrap CSS ===== -->
     <link href="<?php echo base_url() ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
     <link href="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/dropify/dist/css/dropify.min.css">
+    <!-- <link href="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet"> -->
     <link href="<?php echo base_url() ?>assets/plugins/components/css-chart/css-chart.css" rel="stylesheet">
     <!-- ===== Animation CSS ===== -->
     <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
@@ -56,11 +57,12 @@
                     <li>
                         <a href="javascript:void(0)" class="sidebartoggler font-20 waves-effect waves-light"><i class="icon-arrow-left-circle"></i></a>
                     </li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li>
-                        <form role="search" class="app-search hidden-xs">
-                            <i class="icon-magnifier"></i>
-                            <input type="text" placeholder="Search..." class="form-control">
-                        </form>
+                        <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="javascript:void(0);">
+                            Hi , ADMIN
+                        </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -157,7 +159,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url() ?>admin/user" aria-expanded="false">
                                 <i class="icon-people fa-fw"></i>
                                 <span class="hide-menu"> User </span>
                             </a>
@@ -173,7 +175,7 @@
         <!-- ===== Page-Content-End ===== -->
 
         <footer class="footer t-a-c">
-            © 2017 Cubic Admin
+            © 2021 Indonesia Melayani
         </footer>
 
     </div>
@@ -197,10 +199,47 @@
     <script src="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/knob/jquery.knob.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/components/custom-chart/chart.js"></script>
     <script src="<?php echo base_url() ?>assets/js/db3.js"></script>
     <!-- ===== Style Switcher JS ===== -->
     <script src="<?php echo base_url() ?>assets/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
+    <!-- jQuery file upload -->
+    <script src="<?php echo base_url() ?>assets/plugins/components/dropify/dist/js/dropify.min.js"></script>
+    <script>
+        $(function() {
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>
