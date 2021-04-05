@@ -27,7 +27,7 @@
                                 <td><?php echo $status ?></td>
                                 <td>
                                     <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit<?php echo $id ?>" data-whatever="@mdo">
-                                        Edit
+                                        Ubah
                                     </button>
                                     <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus<?php echo $id ?>" data-whatever="@mdo">
                                         Hapus
@@ -131,29 +131,30 @@ foreach ($user->result_array() as $i) {
             <div class="modal-content" style="border-radius: 10px;">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="exampleModalLabel">Tambah User</h4>
+                    <h4 class="modal-title" id="exampleModalLabel">Ubah User</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="<?php echo base_url() ?>admin/user/tambah">
+                    <form method="post" action="<?php echo base_url() ?>admin/user/edit">
                         <div class="white-box">
                             <h3 class="box-title">Unggah Foto Profil</h3>
-                            <input type="file" id="input-file-now" name="files[]" accept=".jpg,.jpeg.,png" class="dropify" />
+                            <input type="file" id="input-file-now" name="files[]" accept=".jpg,.jpeg.,png" class="dropify"/>
                         </div>
+                        <input type="hidden" name="file_old" value="<?php echo $i['image'];?>">
                         <div class="form-group">
                             <label class="control-label" for="example-email">Nama :</label>
-                            <input type="text" name="nama" class="form-control" required>
+                            <input type="text" name="nama" class="form-control"  value="<?php echo $i['nama'];?>" >
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="message-text" class="control-label">Username:</label>
-                                    <input type="text" name="username" class="form-control" required>
+                                    <input type="text" name="username" class="form-control" value="<?php echo $i['username'];?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="message-text" class="control-label">Email:</label>
-                                    <input type="email" name="email" class="form-control" required>
+                                    <input type="email" name="email" class="form-control" value="<?php echo $i['email'];?>">
                                 </div>
                             </div>
                         </div>
@@ -161,35 +162,37 @@ foreach ($user->result_array() as $i) {
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="message-text" class="control-label">Password:</label>
-                                    <input type="password" id="password" name="password" class="form-control" required>
+                                    <input type="password" id="password" name="password" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="message-text" class="control-label">Ulangi Password:</label>
-                                    <input type="password" id="confirm_password" name="password" class="form-control" required>
+                                    <input type="password" id="confirm_password" name="password" class="form-control">
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="password_old" value="<?php echo $i['password'];?>">
                         <div class="form-group">
                             <label class="control-label">Status</label>
                             <div class="radio-list">
                                 <label class="radio-inline p-0">
                                     <div class="radio radio-info">
-                                        <input type="radio" name="role" id="radio1" value="1" required>
+                                        <input type="radio" name="role" id="radio1" value="1" <?php echo ($i['role'] == 1) ? "checked" : ''; ?>>
                                         <label for="radio1">Administrator</label>
                                     </div>
                                 </label>
                                 <label class="radio-inline">
                                     <div class="radio radio-info">
-                                        <input type="radio" name="role" id="radio2" value="2">
+                                        <input type="radio" name="role" id="radio2" value="2" <?php echo ($i['role'] == 2) ? "checked" : ''; ?>>
                                         <label for="radio2">Editor </label>
                                     </div>
                                 </label>
                             </div>
                         </div>
+                        <input type="hidden" name="id" value="<?php echo $id ?>">
                         <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger btn-rounded pull-right">Tambah User</button>
+                        <button type="submit" class="btn btn-danger btn-rounded pull-right">Ubah User</button>
                     </form>
                 </div>
             </div>
