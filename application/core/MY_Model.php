@@ -164,7 +164,8 @@ class MY_Model extends CI_Model
         $this->db->delete($table);
     }
 
-    function insert_activity($data = '') {
+    function insert_activity($data = '')
+    {
         $userid = isset($_SESSION['username']) ? trim($_SESSION['username']) : '';
         $agent = (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
         $ipaddr = $this->libs->get_client_ip();
