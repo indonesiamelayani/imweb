@@ -17,7 +17,7 @@ class Login extends CI_Controller
     function auth()
     {
         $username   = $this->input->post('username');
-        $password   = password_hash($this->input->post('password'), PASSWORD_BCRYPT, array('cost' => 10));
+        $password   = $this->input->post('password');
         $check      = $this->MY_Model->singleData('user', array('username' => $username));
         
         
