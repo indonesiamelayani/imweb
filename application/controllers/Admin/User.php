@@ -17,6 +17,8 @@ class User extends CI_Controller
         $data['user']       = $this->MY_Model->getListOrderby($table, $where, $orderby);
         $data['content']    = 'user';
         $this->load->view('templates/default', $data); ////asd
+
+        $this->MY_Model->insert_activity(current_url());
     }
     function tambah()
     {
@@ -51,6 +53,7 @@ class User extends CI_Controller
         } else {
             echo "File sudah ada";
         }
+        $this->MY_Model->insert_activity(current_url());
     }
     function hapus()
     {
@@ -99,5 +102,7 @@ class User extends CI_Controller
         $where      = array('id'           => $id);
         $this->MY_Model->update($form_data, $where, $table);
         redirect('admin/user/index');
+
+        $this->MY_Model->insert_activity(current_url());
     }
 }

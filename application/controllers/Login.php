@@ -12,6 +12,7 @@ class Login extends CI_Controller
     public function index()
     {
         $this->load->view('login');
+        $this->MY_Model->insert_activity(current_url());
     }
     
     function auth()
@@ -39,5 +40,6 @@ class Login extends CI_Controller
                         window.location.href="./";
                     </script>';
         }
+    $this->MY_Model->insert_activity(current_url());
     }
 }

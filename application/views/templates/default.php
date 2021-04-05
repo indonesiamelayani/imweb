@@ -46,11 +46,12 @@
                 <div class="top-left-part">
                     <a class="logo" href="index.html">
                         <b>
-                            <img src="<?php echo base_url() ?>assets/plugins/images/logo.png" alt="home" />
+                            <img src="<?php echo base_url() ?>assets/plugins/images/logo_im_sm.png" alt="home" />
                         </b>
-                        <span>
-                            <img src="<?php echo base_url() ?>assets/plugins/images/logo-text.png" alt="homepage" class="dark-logo" />
-                        </span>
+                        
+                    </a>
+                    <a class="logo">
+                        Indonesia Melayani
                     </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
@@ -61,7 +62,7 @@
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li>
                         <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="javascript:void(0);">
-                            Hi , ADMIN
+                            Hi , <?php echo $_SESSION['username']; ?>
                         </a>
                     </li>
                 </ul>
@@ -74,7 +75,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a class="text-center" href="javascript:void(0);">
-                                    <strong>Log OUt</strong>
+                                    <strong>Log Out</strong>
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </li>
@@ -111,7 +112,7 @@
                 <nav class="sidebar-nav">
                     <ul id="side-menu">
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url() ?>admin/home" aria-expanded="false">
                                 <i class="icon-screen-desktop fa-fw"></i>
                                 <span class="hide-menu"> Home </span>
                             </a>

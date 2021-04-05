@@ -163,4 +163,13 @@ class MY_Model extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+    function insert_activity($data = '') {
+        $userid = isset($_SESSION['username']) ? trim($_SESSION['username']) : '';
+        $agent = (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
+        $ipaddr = $this->libs->get_client_ip();
+        $query_string = "INSERT IGNORE INTO user_activity(userid,agent,ipaddr,data,date) VALUES(" . $this->db->escape($userid) . "," .  $this->db->escape($agent) . "," . $this->db->escape($ipaddr) . "," . $this->db->escape($data) . ",NOW());";
+        $this->db->query($query_string);
+        $this->db->close();
+    }
 }
