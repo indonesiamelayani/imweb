@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/plugins/images/favicon.png">
+    <meta name="author" content="indonesia-melayani">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/plugins/images/logo_im_sm.png">
     <title>Indonesia Melayani</title>
     <!-- ===== Bootstrap CSS ===== -->
     <link href="<?php echo base_url() ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,15 +43,15 @@
                 <a class="navbar-toggle font-20 hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </a>
-                <div class="top-left-part">
-                    <a class="logo" href="index.html">
-                        <b>
-                            <img src="<?php echo base_url() ?>assets/plugins/images/logo_im_sm.png" alt="home" />
-                        </b>
-                        
-                    </a>
+                <div class="top-left-part" style="background-color: white;">
                     <a class="logo">
-                        Indonesia Melayani
+                        <b>IM</b>
+                        <!-- <b>
+                            <img src="<?php echo base_url() ?>assets/plugins/images/logo.png" alt="home">
+                        </b> -->
+                        <span>
+                            <img src="<?php echo base_url() ?>assets/plugins/images/logo-text.png" alt="homepage" class="dark-logo">
+                        </span>
                     </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
@@ -91,7 +91,7 @@
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
                         <div class="profile-image">
-                            <img src="<?php echo base_url() ?>assets/plugins/images/users/hanna.jpg" alt="user-img" class="img-circle">
+                            <img src="<?php echo base_url() ?>assets/plugins/images/logo_im.png" alt="user-img" class="img-circle">
                             <a href="javascript:void(0);" class="dropdown-toggle u-dropdown text-blue" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="badge badge-danger">
                                     <i class="fa fa-angle-down"></i>
@@ -106,7 +106,7 @@
                                 <li><a href=""><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
                         </div>
-                        <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);"> Hanna Gover</a></p>
+                        <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);" style="color: #EA5330 !important;"> Indonesia Melayani</a></p>
                     </div>
                 </div>
                 <nav class="sidebar-nav">

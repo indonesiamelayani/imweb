@@ -8,6 +8,7 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('core/MY_Model');
+        if ($_SESSION['username'] == null) redirect(base_url('login'));
     }
     public function index()
     {
@@ -31,10 +32,10 @@ class User extends CI_Controller
         $filename   = implode("|", $_FILES['file']['name']);
         $temp       = implode("|", $_FILES['file']['tmp_name']);
         $location   = "files/";
-        
+
         //check agar tidak terjadi duplikasi file
         $check      = $this->MY_Model->check('user', array('image' => $filename));
-        
+
         if ($check == FALSE) {
             //input variable to array and prepare to transaction
             $form_data = array(
@@ -47,7 +48,7 @@ class User extends CI_Controller
             );
             $table = 'user';
             move_uploaded_file($temp, $location . $filename);
-            
+
             $this->MY_Model->tambah($form_data, $table);
             redirect('admin/user/index');
         } else {
@@ -59,27 +60,28 @@ class User extends CI_Controller
     {
         $id         = $this->input->post('id');
         $now        = date('Y-m-d H:i:s');
-        
+
         $form_data  = array('expired_date' => $now);
         $where      = array('id'           => $id);
         $table      = 'user';
         $this->MY_Model->update($form_data, $where, $table);
         redirect('admin/user/index');
     }
-    
-    function edit(){
+
+    function edit()
+    {
         $id         = $this->input->post('id');
         $nama       = $this->input->post('nama');
         $username   = $this->input->post('username');
         $email      = $this->input->post('email');
         $pw         = $this->input->post('password');
-        if($pw != null){
+        if ($pw != null) {
             $password   = password_hash($this->input->post('password'), PASSWORD_BCRYPT, array('cost' => 10));
         } else {
             $password   = $this->input->post('password_old');
         }
         $role       = $this->input->post('role');
-        if($_FILES['file']['name'] == null){
+        if ($_FILES['file']['name'] == null) {
             $filename   = $this->input->post('file_old');
         } else {
             $filename   = implode("|", $_FILES['file']['name']);
@@ -87,7 +89,7 @@ class User extends CI_Controller
             $location   = "files/";
         }
         $date       = date('Y-m-d H:i:s');
-        
+
         $form_data = array(
             'nama'      => $nama,
             'username'  => $username,
