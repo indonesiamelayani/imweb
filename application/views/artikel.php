@@ -1,0 +1,168 @@
+<div class="page-wrapper">
+    <!-- ===== Page-Container ===== -->
+    <div class="container-fluid">
+        <div class="white-box">
+            <h3 class="box-title m-b-0">Artikel</h3>
+            <button type="button" style="margin: 12px 0px;" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#modaltambah" data-whatever="@mdo">
+                Tambah Artikel
+            </button>
+            <div class="table-responsive">
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Judul</th>
+                            <th>Tanggal dan Waktu</th>
+                            <th>Dilihat</th>
+                            <th>Komentar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>2011/04/25</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
+                                    Ubah
+                                </button>
+                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
+                                    Hapus
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>2011/04/25</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
+                                    Ubah
+                                </button>
+                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
+                                    Hapus
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>2011/04/25</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
+                                    Ubah
+                                </button>
+                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
+                                    Hapus
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>2011/04/25</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
+                                    Ubah
+                                </button>
+                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
+                                    Hapus
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tambahh Artikel -->
+<div class="modal fade" id="modaltambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 10px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Tambah Artikel</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="<?php echo base_url() ?>admin/artikel/tambah">
+                    <div class="form-group">
+                        <label class="control-label" for="example-email">Judul :</label>
+                        <input type="text" name="judul" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Isi :</label>
+                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-rounded pull-right">Tambah</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tambahh Edit -->
+<div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 10px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Edit Artikel</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="<?php echo base_url() ?>admin/artikel/tambah">
+                    <div class="form-group">
+                        <label class="control-label" for="example-email">Judul :</label>
+                        <input type="text" name="judul" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Isi :</label>
+                        <textarea class="textarea_editor1 form-control" rows="15" placeholder="Enter text ..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-rounded pull-right">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Hapus -->
+<div class="modal fade" id="modalhapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius: 10px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Hapus Artikel</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="<?php echo base_url() ?>admin/user/hapus">
+                    <!-- <input type="hidden" name="id" value="<?php echo $id ?>"> -->
+                    <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-rounded pull-right">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var password = document.getElementById("password"),
+        confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>

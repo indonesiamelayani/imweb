@@ -13,8 +13,11 @@
     <!-- ===== Bootstrap CSS ===== -->
     <link href="<?php echo base_url() ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/html5-editor/bootstrap-wysihtml5.css" />
     <link href="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/dropify/dist/css/dropify.min.css">
+    <link href="<?php echo base_url() ?>assets/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
     <!-- <link href="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet"> -->
     <link href="<?php echo base_url() ?>assets/plugins/components/css-chart/css-chart.css" rel="stylesheet">
     <!-- ===== Animation CSS ===== -->
@@ -86,13 +89,13 @@
         </nav>
         <!-- ===== Top-Navigation-End ===== -->
         <!-- ===== Left-Sidebar ===== -->
-        <aside class="sidebar">
+        <aside class="sidebar" style="margin-top:-45px;">
             <div class="scroll-sidebar">
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
                         <div class="profile-image">
-                            <img src="<?php echo base_url() ?>assets/plugins/images/logo_im.png" alt="user-img" class="img-circle">
-                            <a href="javascript:void(0);" class="dropdown-toggle u-dropdown text-blue" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img src="<?php echo base_url() ?>assets/plugins/images/logo_im.png" alt="user-img" class="img-circle" style="z-index: 99;">
+                            <!-- <a href="javascript:void(0);" class="dropdown-toggle u-dropdown text-blue" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="badge badge-danger">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -104,7 +107,7 @@
                                 <li><a href="javascript:void(0);"><i class="fa fa-cog"></i> Account Settings</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href=""><i class="fa fa-power-off"></i> Logout</a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                         <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);" style="color: #EA5330 !important;"> Indonesia Melayani</a></p>
                     </div>
@@ -124,7 +127,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url('admin/artikel') ?>" aria-expanded="false">
                                 <i class="icon-notebook fa-fw"></i>
                                 <span class="hide-menu"> Artikel </span>
                             </a>
@@ -200,11 +203,47 @@
     <script src="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/knob/jquery.knob.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/components/html5-editor/wysihtml5-0.3.0.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/components/html5-editor/bootstrap-wysihtml5.js"></script>
     <script src="<?php echo base_url() ?>assets/js/db3.js"></script>
     <!-- ===== Style Switcher JS ===== -->
     <script src="<?php echo base_url() ?>assets/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
     <!-- jQuery file upload -->
     <script src="<?php echo base_url() ?>assets/plugins/components/dropify/dist/js/dropify.min.js"></script>
+
+    <script src="<?php echo base_url() ?>assets/plugins/components/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <!-- end - This is for export functionality only -->
+    <script>
+        $(function() {
+            $('#myTable').DataTable();
+            $('.textarea_editor').wysihtml5();
+            $('.textarea_editor1').wysihtml5();
+
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+        $('#example23').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    </script>
     <script>
         $(function() {
             // Basic
