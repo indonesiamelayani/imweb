@@ -18,62 +18,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>2011/04/25</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
-                                    Ubah
-                                </button>
-                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
-                                    Hapus
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>2011/04/25</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
-                                    Ubah
-                                </button>
-                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
-                                    Hapus
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>2011/04/25</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
-                                    Ubah
-                                </button>
-                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
-                                    Hapus
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>2011/04/25</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit" data-whatever="@mdo">
-                                    Ubah
-                                </button>
-                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus" data-whatever="@mdo">
-                                    Hapus
-                                </button>
-                            </td>
-                        </tr>
+                        <?php
+                        foreach ($artikel->result_array() as $i) {
+                            $id_artikel = $i['id_artikel'];
+                            $judul      = $i['judul'];
+                            $tanggal    = $i['created_date'];
+                        ?>
+                            <tr>
+                                <td><?php echo $judul ?></td>
+                                <td><?php echo date('D, d M Y', strtotime($tanggal))  ?> WIB</td>
+                                <td>--- Kali</td>
+                                <td>Edinburgh</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit<?php echo $id_artikel ?>" data-whatever="@mdo">
+                                        Ubah
+                                    </button>
+                                    <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus<?php echo $id_artikel ?>" data-whatever="@mdo">
+                                        Hapus
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -97,7 +63,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Isi :</label>
-                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..."></textarea>
+                        <textarea class="tambah form-control" name="isi" rows="15" placeholder="Enter text ..." required></textarea>
                     </div>
                     <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-danger btn-rounded pull-right">Tambah</button>
@@ -107,50 +73,62 @@
     </div>
 </div>
 
-<!-- Modal Tambahh Edit -->
-<div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content" style="border-radius: 10px;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Edit Artikel</h4>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="<?php echo base_url() ?>admin/artikel/tambah">
-                    <div class="form-group">
-                        <label class="control-label" for="example-email">Judul :</label>
-                        <input type="text" name="judul" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Isi :</label>
-                        <textarea class="textarea_editor1 form-control" rows="15" placeholder="Enter text ..."></textarea>
-                    </div>
-                    <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger btn-rounded pull-right">Simpan</button>
-                </form>
+<?php
+foreach ($artikel->result_array() as $i) {
+    $id_artikel = $i['id_artikel'];
+    $judul      = $i['judul'];
+    $isi        = $i['isi'];
+?>
+    <!-- Modal Tambahh Edit -->
+    <div class="modal fade" id="modaledit<?php echo $id_artikel ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="border-radius: 10px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Edit Artikel</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="<?php echo base_url() ?>admin/artikel/edit">
+                        <div class="form-group">
+                            <label class="control-label" for="example-email">Judul :</label>
+                            <input type="text" name="judul" class="form-control" value="<?php echo $judul ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Isi :</label>
+                            <textarea class="edit form-control" rows="15" name="isi" placeholder="Enter text ...">
+                                <?php echo $isi ?>
+                            </textarea>
+                        </div>
+                        <input type="hidden" name="id_artikel" value="<?php echo $id_artikel ?>">
+                        <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger btn-rounded pull-right">Simpan</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Hapus -->
-<div class="modal fade" id="modalhapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content" style="border-radius: 10px;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Hapus Artikel</h4>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="<?php echo base_url() ?>admin/user/hapus">
-                    <!-- <input type="hidden" name="id" value="<?php echo $id ?>"> -->
-                    <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger btn-rounded pull-right">Hapus</button>
-                </form>
+    <!-- Modal Hapus -->
+    <div class="modal fade" id="modalhapus<?php echo $id_artikel ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius: 10px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Hapus Artikel</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="<?php echo base_url() ?>admin/artikel/hapus">
+                        <input type="hidden" name="id_artikel" value="<?php echo $id_artikel ?>">
+                        <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger btn-rounded pull-right">Hapus</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<?php
+}
+?>
 <script>
     var password = document.getElementById("password"),
         confirm_password = document.getElementById("confirm_password");

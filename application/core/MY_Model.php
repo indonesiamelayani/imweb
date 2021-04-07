@@ -67,6 +67,14 @@ class MY_Model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+    function getListDataOrderby($table, $orderby)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->order_by($orderby);
+        $query = $this->db->get();
+        return $query;
+    }
     function getListJoin($destination, $join, $where, $table, $filter)
     {
         $this->db->select($filter);

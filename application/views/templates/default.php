@@ -226,7 +226,12 @@
             $('#myTable').DataTable();
             $('.textarea_editor').wysihtml5();
             $('.textarea_editor1').wysihtml5();
-
+            $('.tambah').wysihtml5({
+                "image": false, //Button to insert an image.
+            });
+            $('.edit').wysihtml5({
+                "image": false, //Button to insert an image.
+            });
             // Order by the grouping
             $('#example tbody').on('click', 'tr.group', function() {
                 var currentOrder = table.order()[0];
