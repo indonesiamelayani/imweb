@@ -12,10 +12,25 @@ class Artikel extends CI_Controller
     public function index()
     {
         $data['artikel']    = $this->getListArtikel();
-        // var_dump($data['artikel']->result_array());
+        // $data['komen']      = $this->MY_Model->count()->i;
+        // $data['artikel']        = $this->getCountKomentar();
+        // var_dump($data['count']->result_array());
+        // var_dump($data['komen']->i);
+        // $komentar =  implode("|", $data['komen']->jmlkomen);
+        // echo $data['komen'];
         // die();
         $data['content']    = 'artikel';
         $this->load->view('templates/default', $data); ////asd
+    }
+    function getCountKomentar()
+    {
+        // $id_artikel = '';
+        $table = 'artikel';
+        // $where = array('id_artikel' => $id_artikel);
+        $orderby = 'artikel.id_artikel';
+        $destination = 'komentar';
+        $join = '' . $destination . '.id_artikel=' . '' . $table . '.id_artikel';
+        return $this->MY_Model->getListDataJoinOrderby($table, $orderby, $destination, $join);
     }
     function getListArtikel()
     {
@@ -56,7 +71,7 @@ class Artikel extends CI_Controller
         $this->MY_Model->update($form_data, $where, $table);
         redirect('admin/artikel/index');
     }
-    function hapus()
+    function hapus() #hard delete/clean delete
     {
         $id     = $this->input->post('id_artikel');
         $where  = array('id_artikel' => $id);

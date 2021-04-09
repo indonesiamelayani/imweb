@@ -75,6 +75,15 @@ class MY_Model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+    function getListDataJoinOrderby($table, $orderby, $destination, $join)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->join($destination, $join);
+        $this->db->order_by($orderby);
+        $query = $this->db->get();
+        return $query;
+    }
     function getListJoin($destination, $join, $where, $table, $filter)
     {
         $this->db->select($filter);
@@ -91,6 +100,17 @@ class MY_Model extends CI_Model
         $this->db->join($destination, $join);
         $this->db->join($destination2, $join2);
         $this->db->where($where);
+        $query = $this->db->get();
+        return $query;
+    }
+    function getListJoin2Orderby($orderby, $destination, $join, $destination2, $join2, $where, $table, $filter)
+    {
+        $this->db->select($filter);
+        $this->db->from($table);
+        $this->db->join($destination, $join);
+        $this->db->join($destination2, $join2);
+        $this->db->where($where);
+        $this->db->order_by($orderby);
         $query = $this->db->get();
         return $query;
     }
@@ -155,6 +175,10 @@ class MY_Model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+    function count_data($table)
+    {
+        return $this->db->count_all_results($table);
+    }
     function tambah($form_data, $table)
     {
         $this->db->set($form_data);
@@ -180,5 +204,18 @@ class MY_Model extends CI_Model
         $query_string = "INSERT IGNORE INTO user_activity(userid,agent,ipaddr,data,date) VALUES(" . $this->db->escape($userid) . "," .  $this->db->escape($agent) . "," . $this->db->escape($ipaddr) . "," . $this->db->escape($data) . ",NOW());";
         $this->db->query($query_string);
         $this->db->close();
+    }
+    function count($field, $table, $where)
+    {
+        return $this->db->select('count(' . $field . ') as i')->from($table)->where($where)->limit(1)->get()->row();
+        // $this->db->select('count(komentar)');
+        // $this->db->from('komentar');
+        // $this->db->where('id_artikel', 3);
+        // $query = $this->db->get();
+        // return $query;
+        // $query = 'SELECT count(komentar) as jmlkomen
+        // FROM komentar
+        // WHERE id_artikel=3';
+        // return $this->db->query($query);
     }
 }

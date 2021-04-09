@@ -23,12 +23,16 @@
                             $id_artikel = $i['id_artikel'];
                             $judul      = $i['judul'];
                             $tanggal    = $i['created_date'];
+
+                            $komen = $this->MY_Model->count('komentar', 'komentar', array('id_artikel' => $id_artikel))->i;
+                            $lihat = $this->MY_Model->count('id_artikel', 'user_activity', array('id_artikel' => $id_artikel))->i;
+                            // $count = $this->MY_Model->count_data($komen);
                         ?>
                             <tr>
                                 <td><?php echo $judul ?></td>
                                 <td><?php echo date('D, d M Y', strtotime($tanggal))  ?> WIB</td>
-                                <td>--- Kali</td>
-                                <td>Edinburgh</td>
+                                <td><?php echo $lihat ?> Kali</td>
+                                <td><?php echo $komen ?></td>
                                 <td>
                                     <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit<?php echo $id_artikel ?>" data-whatever="@mdo">
                                         Ubah
