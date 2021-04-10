@@ -25,7 +25,7 @@
                             $tanggal    = $i['created_date'];
 
                             $komen = $this->MY_Model->count('komentar', 'komentar', array('id_artikel' => $id_artikel))->i;
-                            $lihat = $this->MY_Model->count('id_artikel', 'user_activity', array('id_artikel' => $id_artikel))->i;
+                            $lihat = $this->MY_Model->count('id_history', 'history_artikel', array('id_artikel' => $id_artikel))->i;
                             // $count = $this->MY_Model->count_data($komen);
                         ?>
                             <tr>
