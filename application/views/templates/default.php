@@ -157,7 +157,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url() ?>admin/tentang" aria-expanded="false">
                                 <i class="icon-info fa-fw"></i>
                                 <span class="hide-menu"> Tentang IM </span>
                             </a>
