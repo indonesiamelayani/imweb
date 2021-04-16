@@ -4,50 +4,51 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="white-box">
+                    <!-- DESKRIPSI UMUM -->
                     <h3 class="box-title m-b-0">Tentang Kami</h3><br>
-                    <form class="form-horizontal" method="post" action="<?php echo base_url() ?>admin/tentang/edit">
+                    <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
                         <div class="form-group">
                             <div class="col-md-12" style="margin-bottom:20px">
-                                <textarea class="form-control" style="border-radius: 8px;" rows="10"></textarea>
+                                <textarea class="form-control" name="deskripsi[]" style="border-radius: 8px;" rows="10"><?php echo $desc->deskripsi; ?></textarea>
                             </div>
                             <div class="row" style="margin-left:0px">
                                 <div class="col-sm-3 ol-md-6 col-xs-12">
-                                    <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
+                                    <input type="file" name="files[]" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" data-default-file="<?php echo base_url() ?>files/<?php echo $desc->image ?>" />
+                                    <!-- <input type="file" name="files[]" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" required /> -->
                                 </div>
+                                <input type="hidden" name="old_file" value="<?php echo $desc->image ?>">
+                                <input type="hidden" name="id[]" value="<?php echo $desc->id ?>">
                                 <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button>
                             </div>
                         </div>
                     </form>
+                    <!-- ./DESKRIPSI UMUM -->
                     <hr>
+                    <!-- KARYA DAN KKARSA-->
                     <div class="row">
-                        <form action="<?php echo base_url() ?>admin/tentang/edit" method="post">
-                            <div class="col-md-4" style="padding-right: 30px;">
-                                <div class="form-group">
-                                    <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                    <div class="col-md-12" style="margin-bottom:20px">
-                                        <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                    </div>
-                                    <div class="row" style="margin-left:0px">
-                                        <div class="col-sm-8">
-                                            <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
+                            <?php
+                            foreach ($karsa_k->result_array() as $i) {
+                                $id         = $i['id'];
+                                $judul      = $i['judul'];
+                                $deskripsi  = $i['deskripsi'];
+                                $image      = $i['image'] ?>
+                                <div class="col-md-4" style="padding-right: 30px;">
+                                    <div class="form-group">
+                                        <input type="hidden" name="id[]" value="<?php echo $id ?>">
+                                        <input type="hidden" name="old_file" value="<?php echo $image ?>">
+                                        <h3 class="box-title" style="padding-left: 15px;"><?php echo $judul ?></h3>
+                                        <div class="col-md-12" style="margin-bottom:20px">
+                                            <textarea class="form-control" name="deskripsi[]" style="border-radius: 8px;" rows="3"><?php echo $deskripsi ?></textarea>
                                         </div>
-                                        <!-- <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <h3 class="box-title" style="padding-left: 15px;">Karya</h3>
-                                    <div class="col-md-12" style="margin-bottom:20px">
-                                        <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                    </div>
-                                    <div class="row" style="margin-left:0px">
-                                        <div class="col-sm-8">
-                                            <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
+                                        <div class="row" style="margin-left:0px">
+                                            <div class="col-sm-8">
+                                                <input type="file" name="files[]" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" data-default-file="<?php echo base_url() ?>files/<?php echo $image ?>" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                             <button type="submit" class="btn btn-danger pull-right" style="margin:300px 25px 0px;">Simpan</button>
                         </form>
                     </div>
