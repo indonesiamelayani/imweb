@@ -12,7 +12,10 @@ class Common_variable
     {
         return 2;
     }
-
+    public function getGroupManajemen()
+    {
+        return 3;
+    }
     public function getTimeNow()
     {
         return date('Y-m-d H:i:s');

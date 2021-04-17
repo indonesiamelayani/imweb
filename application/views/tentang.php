@@ -36,7 +36,6 @@
                                 <div class="col-md-4" style="padding-right: 30px;">
                                     <div class="form-group">
                                         <input type="hidden" name="id[]" value="<?php echo $id ?>">
-                                        <input type="hidden" name="old_file" value="<?php echo $image ?>">
                                         <h3 class="box-title" style="padding-left: 15px;"><?php echo $judul ?></h3>
                                         <div class="col-md-12" style="margin-bottom:20px">
                                             <textarea class="form-control" name="deskripsi[]" style="border-radius: 8px;" rows="3"><?php echo $deskripsi ?></textarea>
@@ -54,37 +53,26 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Struktur</h3>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-12">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
+                            <?php
+                            foreach ($manajemen->result_array() as $i) {
+                                $id     = $i['id'];
+                                $judul  = $i['judul'];
+                                $image  = $i['image']; ?>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <h3 class="box-title" style="padding-left: 15px;"><?php echo $judul ?></h3>
+                                        <input type="hidden" name="id[]" value="<?php echo $id ?>">
+                                        <div class="row" style="margin-left:0px">
+                                            <div class="col-sm-12">
+                                                <input type="file" name="files[]" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" data-default-file="<?php echo base_url() ?>files/<?php echo $image ?>" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Alur Publikasi</h3>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-12">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Mekanisme Publikasi</h3>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-9">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-danger pull-right" style="margin:190px 25px 0px;">Simpan</button>
+                            <?php } ?>
+                            <button type="submit" class="btn btn-danger pull-right" style="margin:190px 25px 0px;">Simpan</button>
+                        </form>
                     </div>
                     <hr>
                     <h3 class="box-title m-b-0">Kajian Penerbitan</h3><br>
