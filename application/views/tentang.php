@@ -119,6 +119,7 @@
                                 $deskripsi  = $i['deskripsi'];
                             ?>
                                 <input type="hidden" name="id[]" value="<?php echo $id ?>">
+                                <input type="hidden" name="group[]" value="<?php echo $this->common_variable->getGroupAktifitas() ?>">
                                 <div class="form-group" style="margin-bottom: 20px;">
                                     <h3 class="box-title" style="padding-left: 15px;"><?php echo $judul ?></h3>
                                     <div class="col-md-12">
