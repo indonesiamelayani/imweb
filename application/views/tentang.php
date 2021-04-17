@@ -51,7 +51,9 @@
                             <button type="submit" class="btn btn-danger pull-right" style="margin:300px 25px 0px;">Simpan</button>
                         </form>
                     </div>
+                    <!-- ./KARSA DAN KARYA -->
                     <hr>
+                    <!-- STRUKTUR ALUR PUBLIKASI -->
                     <div class="row">
                         <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
                             <?php
@@ -74,131 +76,61 @@
                             <button type="submit" class="btn btn-danger pull-right" style="margin:190px 25px 0px;">Simpan</button>
                         </form>
                     </div>
+                    <!-- ./STRUKTUR ALUR PUBLIKASI -->
                     <hr>
+                    <!-- KAJIAN PENERBITAN -->
                     <h3 class="box-title m-b-0">Kajian Penerbitan</h3><br>
                     <div class="row">
-                        <div class="col-md-3" style="padding-right: 10px;">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                <div class="col-md-12" style="margin-bottom:20px">
-                                    <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                </div>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                    <!-- <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3" style="padding-right: 10px;">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                <div class="col-md-12" style="margin-bottom:20px">
-                                    <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                </div>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                    <!-- <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3" style="padding-right: 10px;">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                <div class="col-md-12" style="margin-bottom:20px">
-                                    <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                </div>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                    <!-- <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3" style="padding-right: 10px;">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                <div class="col-md-12" style="margin-bottom:20px">
-                                    <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                </div>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                    <!-- <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3" style="padding-right: 10px;">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                <div class="col-md-12" style="margin-bottom:20px">
-                                    <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                </div>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                    <!-- <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3" style="padding-right: 10px;">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                <div class="col-md-12" style="margin-bottom:20px">
-                                    <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                </div>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
-                                    </div>
-                                    <!-- <button type="submit" class="btn btn-danger pull-right" style="margin:150px 25px 0px;">Simpan</button> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3" style="padding-right: 10px;">
-                            <div class="form-group">
-                                <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                                <div class="col-md-12" style="margin-bottom:20px">
-                                    <textarea class="form-control" style="border-radius: 8px;" rows="3"></textarea>
-                                </div>
-                                <div class="row" style="margin-left:0px">
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" />
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
+                            <?php
+                            foreach ($kajian->result_array() as $i) {
+                                $id         = $i['id'];
+                                $judul      = $i['judul'];
+                                $deskripsi  = $i['deskripsi'];
+                                $image      = $i['image'] ?>
+                                <div class="col-md-3" style="padding-right: 10px;">
+                                    <div class="form-group">
+                                        <input type="hidden" name="id[]" value="<?php echo $id ?>">
+                                        <h3 class="box-title" style="padding-left: 15px;"><?php echo $judul ?></h3>
+                                        <div class="col-md-12" style="margin-bottom:20px">
+                                            <textarea class="form-control" name="deskripsi[]" style="border-radius: 8px;" rows="3"><?php echo $deskripsi ?></textarea>
+                                        </div>
+                                        <div class="row" style="margin-left:0px">
+                                            <div class="col-sm-8">
+                                                <input type="file" name="files[]" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" data-default-file="<?php echo base_url() ?>files/<?php echo $image ?>" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-danger pull-right" style="margin:300px 25px 0px;">Simpan</button>
+                            <?php } ?>
+                            <button type="submit" class="btn btn-danger pull-right" style="margin:300px 25px 0px;">Simpan</button>
+                        </form>
                     </div>
+                    <!-- ./KAJIAN PENERBITAN -->
                     <hr>
-                    <h3 class="box-title m-b-0">Kajian Penerbitan</h3><br>
-                    <div class="row" style="padding-left: 15px;">
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                            <div class="col-md-12">
-                                <textarea class="form-control" style="border-radius: 8px;margin-bottom: 20px;" rows="2"></textarea>
-                            </div>
+                    <!-- AKTIFITAS -->
+                    <h3 class="box-title m-b-0">Aktifitas</h3><br>
+                    <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
+                        <div class="row" style="margin: 5px;">
+                            <?php
+                            foreach ($aktifitas->result_array() as $i) {
+                                $id         = $i['id'];
+                                $judul      = $i['judul'];
+                                $deskripsi  = $i['deskripsi'];
+                            ?>
+                                <input type="hidden" name="id[]" value="<?php echo $id ?>">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <h3 class="box-title" style="padding-left: 15px;"><?php echo $judul ?></h3>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" name="deskripsi[]" style="border-radius: 8px;margin-bottom: 20px;" rows="2"><?php echo $deskripsi ?></textarea>
+                                    </div>
+                                </div>
+                            <?php }
+                            ?>
+                            <button type="submit" class="btn btn-danger pull-right" style="margin:20px 25px 0px;">Simpan</button>
                         </div>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                            <div class="col-md-12">
-                                <textarea class="form-control" style="border-radius: 8px;margin-bottom: 20px;" rows="2"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <h3 class="box-title" style="padding-left: 15px;">Karsa</h3>
-                            <div class="col-md-12">
-                                <textarea class="form-control" style="border-radius: 8px;margin-bottom: 20px;" rows="2"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-danger pull-right" style="margin:20px 25px 0px;">Simpan</button>
-                    </div>
+                    </form>
+                    <!-- ./AKTIFITAS -->
                     <!-- <div class="form-group">
                         <label class="col-md-12" for="example-email">Email <span class="help"> e.g. "example@gmail.com"</span></label>
                         <div class="col-md-12">

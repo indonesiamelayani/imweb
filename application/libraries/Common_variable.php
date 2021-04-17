@@ -16,6 +16,14 @@ class Common_variable
     {
         return 3;
     }
+    public function getGroupKajianPenelitian()
+    {
+        return 4;
+    }
+    public function getGroupAktifitas()
+    {
+        return 5;
+    }
     public function getTimeNow()
     {
         return date('Y-m-d H:i:s');
