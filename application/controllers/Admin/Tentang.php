@@ -14,9 +14,17 @@ class Tentang extends CI_Controller
     {
         $data['karsa_k']    = $this->getInfoKarsaKarya();
         $data['desc']       = $this->getInfoDesc();
+        $data['manajemen']  = $this->getInfoManajemen();
         $data['content']    = 'tentang';
-        // var_dump($data['karsa_k']->result_array());
+        // var_dump($data['manajemen']->result_array());
         $this->load->view('templates/default', $data); ////asd
+    }
+    function getInfoManajemen()
+    {
+        $table  = 'tentang';
+        $group  = $this->common_variable->getGroupManajemen();
+        $where  = array('group' => $group);
+        return $this->MY_Model->getList($table, $where);
     }
     function getInfoKarsaKarya()
     {
@@ -43,10 +51,6 @@ class Tentang extends CI_Controller
         $time       = $this->common_variable->getTimeNow();
         // echo $count;
         for ($i = 0; $i < $count; $i++) {
-            // var_dump($_FILES['files']['name'][$i]);
-            // echo (strlen($filename[$i]));
-            // var_dump(strlen($_FILES['files']['name'][$i]));
-            // die();
             if (strlen($filename[$i]) != 0) {
                 $form_data = array(
                     'deskripsi'     => $deskripsi[$i],
