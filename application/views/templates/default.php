@@ -139,7 +139,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url('admin/infografis') ?>" aria-expanded="false">
                                 <i class="icon-chart fa-fw"></i>
                                 <span class="hide-menu"> Infografis </span>
                             </a>
