@@ -121,7 +121,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url('admin/halaman') ?>" aria-expanded="false">
                                 <i class="icon-docs fa-fw"></i>
                                 <span class="hide-menu"> Halaman </span>
                             </a>

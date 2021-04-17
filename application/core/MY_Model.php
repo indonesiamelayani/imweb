@@ -190,6 +190,11 @@ class MY_Model extends CI_Model
         $this->db->where($where);
         $this->db->update($table);
     }
+    function update_jsonimg($table, $field, $key, $file, $judul, $deskripsi, $time, $id)
+    {
+        $query_string = "UPDATE $table SET $field = JSON_REPLACE($field, '$key', '$file'), judul='$judul', deskripsi='$deskripsi', updated='$time' WHERE id=$id";
+        $this->db->query($query_string);
+    }
     function hapus($where, $table)
     {
         $this->db->where($where);
