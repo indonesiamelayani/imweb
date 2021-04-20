@@ -151,7 +151,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url() ?>admin/polling" aria-expanded="false">
                                 <i class="icon-pie-chart fa-fw"></i>
                                 <span class="hide-menu"> Polling </span>
                             </a>
