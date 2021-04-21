@@ -13,7 +13,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!--  -->
+                        <?php
+                        foreach ($list_poll->result_array() as $i) {
+                            $id    = $i['id'];
+                            $judul = $i['judul_polling']; ?>
+                            <td><?php echo $judul ?></td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit<?php echo $id ?>" data-whatever="@mdo">
+                                    Aksi
+                                </button>
+                                <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit<?php echo $id ?>" data-whatever="@mdo">
+                                    Ubah
+                                </button>
+                                <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus<?php echo $id ?>" data-whatever="@mdo">
+                                    Hapus
+                                </button>
+                            </td>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                     <button type="button" style="margin: 12px 0px;" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#modaltambah" data-whatever="@mdo">
                         Buat Polling

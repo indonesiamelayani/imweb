@@ -11,8 +11,17 @@ class Polling extends CI_Controller
     }
     public function index()
     {
+        $data['list_poll']  = $this->getListPolling();
         $data['content']    = 'polling';
+        // var_dump($data['list_poll']->result_array());
         $this->load->view('templates/default', $data); ////asd
+    }
+    function getListPolling()
+    {
+        $table  = 'polling';
+        $orderby = 'id';
+        $where  = array('is_judul' => 1);
+        return $this->MY_Model->getListOrderby($table, $where, $orderby);
     }
     function getOpsi()
     {
@@ -21,7 +30,7 @@ class Polling extends CI_Controller
             <div class='col-md-6'>
                 <div class='form-group' style="margin: 10px;">
                     <label class='control-label' for='example-email'>Opsi <?php echo $i ?> :</label>
-                    <input type='text' name='pilihan[]' class='form-control' required>
+                    <input type='text' name='opsi[]' class='form-control' required>
                 </div>
             </div>
 <?php
