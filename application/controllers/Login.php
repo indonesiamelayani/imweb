@@ -42,4 +42,9 @@ class Login extends CI_Controller
         }
         $this->MY_Model->insert_activity(current_url());
     }
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('login');
+    }
 }

@@ -77,7 +77,7 @@
                         <ul class="dropdown-menu dropdown-tasks animated slideInUp">
                             <li class="divider"></li>
                             <li>
-                                <a class="text-center" href="javascript:void(0);">
+                                <a class="text-center" href="<?php echo base_url('login/logout') ?>">
                                     <strong>Log Out</strong>
                                     <i class="fa fa-angle-right"></i>
                                 </a>

@@ -33,20 +33,49 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="exampleModalLabel">Buat Polling</h4>
             </div>
-            <div class="modal-body">
-                <form method="post" action="<?php echo base_url() ?>admin/polling/tambah">
+            <form method="post" action="<?php echo base_url() ?>admin/polling/tambah">
+                <div class="modal-body">
                     <div class="form-group">
                         <label class="control-label" for="example-email">Judul Polling :</label>
                         <input type="text" name="judul" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Isi :</label>
-                        <textarea class="tambah form-control" name="isi" rows="15" placeholder="Enter text ..." required></textarea>
+                        <label>Jumlah Opsi</label>
+                        <select class="form-control" id="jml_opsi">
+                            <option selected>--Pilih Jumlah Opsi--</option>
+                            <?php
+                            for ($i = 1; $i <= 10; $i++) { ?>
+                                <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                            <?php }
+                            ?>
+                        </select>
                     </div>
-                    <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
+                    <div id="opsi" class="row">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-rounded btn-default pull-left" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-danger btn-rounded pull-right">Tambah</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#jml_opsi').on('change', function() {
+        jml_opsi = document.getElementById('jml_opsi').value;
+        $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() ?>admin/polling/getOpsi',
+                data: {
+                    jml_opsi: jml_opsi,
+                },
+            })
+            .done(function(response) {
+                $('#opsi').html(response);
+            });
+    })
+</script>
