@@ -3,6 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Polling extends CI_Controller
 {
+    public $table = 'polling';
+
     public function __construct()
     {
         parent::__construct();
@@ -19,8 +21,7 @@ class Polling extends CI_Controller
     }
     function tambah()
     {
-        $table      = 'polling';
-        $id_judul   = $this->MY_Model->count_data($table) + 1;
+        $id_judul   = $this->MY_Model->count_data($this->table) + 1;
         $judul      = $this->input->post('judul');
         $nm_opsi    = $this->input->post('nm_opsi');
         $count      = count($nm_opsi);
@@ -33,27 +34,34 @@ class Polling extends CI_Controller
             'created_date'  => $now,
             'is_judul'      => 1,
         );
-        $this->MY_Model->tambah($form_data, $table);
+        $this->MY_Model->tambah($form_data, $this->table);
 
         //record opsi
         for ($i = 0; $i < $count; $i++) {
-            $id_opsi    = $this->MY_Model->count_data($table) + 1;
+            $id_opsi    = $this->MY_Model->count_data($this->table) + 1;
             $form_data  = array(
                 'id'            => $id_opsi,
                 'id_judul'      => $id_judul,
                 'nm_opsi'       => $nm_opsi[$i],
                 'created_date'  => $now,
             );
-            $this->MY_Model->tambah($form_data, $table);
+            $this->MY_Model->tambah($form_data, $this->table);
         }
+        redirect('admin/polling');
+    }
+    function hapus()
+    {
+        $id_judul   = $this->input->post('id_judul');
+        $where      = array('id' => $id_judul);
+        $form_data  = array('expired_date' => $this->common_variable->getTimeNow());
+        $this->MY_Model->update($form_data, $where, $this->table);
         redirect('admin/polling');
     }
     function getListPolling()
     {
-        $table  = 'polling';
         $orderby = 'id';
-        $where  = array('is_judul' => 1);
-        return $this->MY_Model->getListOrderby($table, $where, $orderby);
+        $where  = array('is_judul' => 1, 'expired_date' => null);
+        return $this->MY_Model->getListOrderby($this->table, $where, $orderby);
     }
     function getOpsi()
     {
