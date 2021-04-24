@@ -15,8 +15,12 @@ class Polling extends CI_Controller
     public function index()
     {
         $data['list_poll']  = $this->getListPolling();
+        // $count_opsi = $this->MY_Model->count('id_result', 'result_polling', array('id' => 2))->i;
+        // echo ($count_opsi);
+        // die();
+        // $data['list_opsi']  = $this->getListOpsi(array('id_judul' => 1));
         $data['content']    = 'polling';
-        // var_dump($data['list_poll']->result_array());
+        // var_dump($data['list_opsi']->result_array());
         $this->load->view('templates/default', $data); ////asd
     }
     function tambah()
@@ -57,6 +61,34 @@ class Polling extends CI_Controller
         $this->MY_Model->update($form_data, $where, $this->table);
         redirect('admin/polling');
     }
+    function edit()
+    {
+        $id_judul   = $this->input->post('id_judul');
+        $id_opsi    = $this->input->post('id_opsi');
+        $judul      = $this->input->post('judul');
+        $nm_opsi    = $this->input->post('nm_opsi');
+        $count      = count($nm_opsi);
+        $now        = $this->common_variable->getTimeNow();
+        $where      = array('id' => $id_judul);
+
+        //update judul
+        $form_data  = array(
+            'judul_polling' => $judul,
+            'last_update'  => $now,
+        );
+        $this->MY_Model->update($form_data, $where, $this->table);
+
+        //record opsi
+        for ($i = 0; $i < $count; $i++) {
+            $where      = array('id' => $id_opsi[$i]);
+            $form_data  = array(
+                'nm_opsi'       => $nm_opsi[$i],
+                'last_update'   => $now,
+            );
+            $this->MY_Model->update($form_data, $where, $this->table);
+        }
+        redirect('admin/polling');
+    }
     function getListPolling()
     {
         $orderby = 'id';
@@ -75,5 +107,9 @@ class Polling extends CI_Controller
             </div>
 <?php
         }
+    }
+    function getListOpsi($where)
+    {
+        return $this->MY_Model->getListOrderby($this->table, $where, 'id');
     }
 }

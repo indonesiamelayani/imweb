@@ -189,6 +189,9 @@
         =============================== -->
     <!-- ===== jQuery ===== -->
     <script src="<?php echo base_url() ?>assets/plugins/components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery peity -->
+    <script src="<?php echo base_url() ?>assets/plugins/components/sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/components/sparkline/jquery.charts-sparkline.js"></script>
     <!-- ===== Bootstrap JavaScript ===== -->
     <script src="<?php echo base_url() ?>assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- ===== Slimscroll JavaScript ===== -->
@@ -220,8 +223,23 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+
+    <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script> -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
     <!-- end - This is for export functionality only -->
     <script>
+        $('.pollingchart').sparkline([20, 40, 30], {
+            type: 'pie',
+            height: '200',
+            resize: true,
+            sliceColors: ['#00bbd9', '#e74a25', '#2ecc71']
+        });
         $(function() {
             $('#myTable').DataTable();
             $('.textarea_editor').wysihtml5();
