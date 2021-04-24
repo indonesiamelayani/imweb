@@ -15,12 +15,7 @@ class Polling extends CI_Controller
     public function index()
     {
         $data['list_poll']  = $this->getListPolling();
-        // $count_opsi = $this->MY_Model->count('id_result', 'result_polling', array('id' => 2))->i;
-        // echo ($count_opsi);
-        // die();
-        // $data['list_opsi']  = $this->getListOpsi(array('id_judul' => 1));
         $data['content']    = 'polling';
-        // var_dump($data['list_opsi']->result_array());
         $this->load->view('templates/default', $data); ////asd
     }
     function tambah()

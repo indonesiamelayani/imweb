@@ -51,6 +51,7 @@
     </div>
 </div>
 
+
 <!-- Modal Tambahh Artikel -->
 <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -60,7 +61,11 @@
                 <h4 class="modal-title" id="exampleModalLabel">Tambah Artikel</h4>
             </div>
             <div class="modal-body">
-                <form method="post" action="<?php echo base_url() ?>admin/artikel/tambah">
+                <form method="post" action="<?php echo base_url() ?>admin/artikel/tambah" enctype="multipart/form-data">
+                    <div class="white-box">
+                        <h3 class="box-title">Unggah Banner</h3>
+                        <input type="file" name="file[]" id="input-file-now-custom-2" class="dropify" data-height="500" required />
+                    </div>
                     <div class="form-group">
                         <label class="control-label" for="example-email">Judul :</label>
                         <input type="text" name="judul" class="form-control" required>
@@ -92,16 +97,18 @@ foreach ($artikel->result_array() as $i) {
                     <h4 class="modal-title" id="exampleModalLabel">Edit Artikel</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="<?php echo base_url() ?>admin/artikel/edit">
+                    <form method="post" action="<?php echo base_url() ?>admin/artikel/edit" enctype="multipart/form-data">
+                        <div class="white-box">
+                            <h3 class="box-title">Unggah Banner</h3>
+                            <input type="file" name="file[]" id="input-file-now-custom-2" class="dropify" data-height="500" />
+                        </div>
                         <div class="form-group">
                             <label class="control-label" for="example-email">Judul :</label>
                             <input type="text" name="judul" class="form-control" value="<?php echo $judul ?>" required>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Isi :</label>
-                            <textarea class="edit form-control" rows="15" name="isi" placeholder="Enter text ...">
-                                <?php echo $isi ?>
-                            </textarea>
+                            <textarea class="edit form-control" rows="15" name="isi" placeholder="Enter text ..."><?php echo $isi ?></textarea>
                         </div>
                         <input type="hidden" name="id_artikel" value="<?php echo $id_artikel ?>">
                         <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>

@@ -12,13 +12,6 @@ class Artikel extends CI_Controller
     public function index()
     {
         $data['artikel']    = $this->getListArtikel();
-        // $data['komen']      = $this->MY_Model->count()->i;
-        // $data['artikel']        = $this->getCountKomentar();
-        // var_dump($data['count']->result_array());
-        // var_dump($data['komen']->i);
-        // $komentar =  implode("|", $data['komen']->jmlkomen);
-        // echo $data['komen'];
-        // die();
         $data['content']    = 'artikel';
         $this->load->view('templates/default', $data); ////asd
     }
@@ -45,15 +38,27 @@ class Artikel extends CI_Controller
         $user       = $_SESSION['username'];
         $now        = date('Y-m-d H:i:s');
         $table      = 'artikel';
-        $form_data  = array(
-            'judul'         => $judul,
-            'isi'           => $isi,
-            'created_date'  => $now,
-            'created_by'    => $user
-        );
+        $filename   = implode("|", $_FILES['file']['name']);
+        $temp       = implode("|", $_FILES['file']['tmp_name']);
+        $location   = "files/";
 
-        $this->MY_Model->tambah($form_data, $table);
-        redirect('admin/artikel/index');
+        //check agar tidak terjadi duplikasi file
+        $check      = $this->MY_Model->check('artikel', array('image' => $filename));
+        if ($check == FALSE) {
+            $form_data  = array(
+                'judul'         => $judul,
+                'isi'           => $isi,
+                'created_date'  => $now,
+                'created_by'    => $user,
+                'image'         => $filename
+            );
+
+            move_uploaded_file($temp, $location . $filename);
+            $this->MY_Model->tambah($form_data, $table);
+            redirect('admin/artikel/index');
+        } else {
+            echo "file sudah ada";
+        }
     }
     function edit()
     {
@@ -62,11 +67,27 @@ class Artikel extends CI_Controller
         $isi        = $this->input->post('isi');
         $now        = date('Y-m-d H:i:s');
         $table      = 'artikel';
-        $form_data  = array(
-            'judul'         => $judul,
-            'isi'           => $isi,
-            'last_update'   => $now,
-        );
+        $filename   = implode("|", $_FILES['file']['name']);
+        $temp       = implode("|", $_FILES['file']['tmp_name']);
+        $location   = "files/";
+
+        if ($filename == null) {
+            $form_data  = array(
+                'judul'         => $judul,
+                'isi'           => $isi,
+                'last_update'   => $now,
+            );
+        } else {
+            $form_data  = array(
+                'judul'         => $judul,
+                'isi'           => $isi,
+                'last_update'   => $now,
+                'image'         => $filename
+            );
+            move_uploaded_file($temp, $location . $filename);
+        }
+        // var_dump($form_data);
+        // die();
         $where      = array('id_artikel' => $id);
         $this->MY_Model->update($form_data, $where, $table);
         redirect('admin/artikel/index');
