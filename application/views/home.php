@@ -39,7 +39,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-sm-12">
                   <div class="white-box stat-widget">
                     <div class="row">
@@ -62,12 +62,12 @@
                           </li>
                         </ul>
                       </div>
-                      <!-- <div id="morris-line-chart"></div> -->
+                      <div id="morris-line-chart"></div>
                       <div class="stat chart-pos"></div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <!-- ===== Page-Container-End ===== -->
           </div>

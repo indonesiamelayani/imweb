@@ -212,7 +212,7 @@ class MY_Model extends CI_Model
     }
     function count($field, $table, $where)
     {
-        return $this->db->select('count(' . $field . ') as i')->from($table)->where($where)->limit(1)->get()->row();
+        return $this->db->select('count(DISTINCT(' . $field . ')) as i')->from($table)->where($where)->limit(1)->get()->row();
         // $this->db->select('count(komentar)');
         // $this->db->from('komentar');
         // $this->db->where('id_artikel', 3);

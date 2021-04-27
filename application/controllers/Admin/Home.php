@@ -26,7 +26,7 @@ class Home extends CI_Controller
     function getToday()
     {
         $now    = date('Y-m-d');
-        $field = 'id';
+        $field = 'ipaddr';
         $table = 'user_activity';
         $where = array(
             'date >=' => $now . ' 00:00:00',
@@ -38,7 +38,7 @@ class Home extends CI_Controller
     function getMonth()
     {
         $now    = date('Y-m-d');
-        $field = 'id';
+        $field = 'ipaddr';
         $table = 'user_activity';
         $where = array(
             'date >=' => $now . ' 00:00:00',
