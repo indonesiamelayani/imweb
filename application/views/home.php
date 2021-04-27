@@ -7,7 +7,9 @@
                     <h3 class="box-title">Pengunjung Hari Ini</h3>
                     <ul class="list-inline">
                       <li class="text-center">
-                        <span class="counter text-default" style="font-size: 30px;font-weight:bold;">8659</span>
+                        <span class="counter text-default" style="font-size: 30px;font-weight:bold;">
+                          <?php echo $today ?>
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -17,7 +19,9 @@
                     <h3 class="box-title">Jumlah Artikel</h3>
                     <ul class="list-inline">
                       <li class="text-center">
-                        <span class="counter text-default" style="font-size: 30px;font-weight:bold;">8659</span>
+                        <span class="counter text-default" style="font-size: 30px;font-weight:bold;">
+                          <?php echo $artikel ?>
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -27,7 +31,9 @@
                     <h3 class="box-title">Jumlah Komentar</h3>
                     <ul class="list-inline">
                       <li class="text-center">
-                        <span class="counter text-default" style="font-size: 30px;font-weight:bold;">8659</span>
+                        <span class="counter text-default" style="font-size: 30px;font-weight:bold;">
+                          <?php echo $komentar ?>
+                        </span>
                       </li>
                     </ul>
                   </div>
