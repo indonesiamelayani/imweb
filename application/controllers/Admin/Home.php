@@ -34,4 +34,16 @@ class Home extends CI_Controller
         );
         return $this->MY_Model->count($field, $table, $where);
     }
+
+    function getMonth()
+    {
+        $now    = date('Y-m-d');
+        $field = 'id';
+        $table = 'user_activity';
+        $where = array(
+            'date >=' => $now . ' 00:00:00',
+            'date >=' => $now . ' 59:59:59'
+        );
+        return $this->MY_Model->count($field, $table, $where);
+    }
 }

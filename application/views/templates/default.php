@@ -145,7 +145,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('admin/galeri') ?>" aria-expanded="false">
+                            <a href="<?php echo base_url('admin/galery') ?>" aria-expanded="false">
                                 <i class="icon-grid fa-fw"></i>
                                 <span class="hide-menu"> Galeri </span>
                             </a>
