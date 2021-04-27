@@ -62,6 +62,7 @@
                           </li>
                         </ul>
                       </div>
+                      <!-- <div id="morris-line-chart"></div> -->
                       <div class="stat chart-pos"></div>
                     </div>
                   </div>
