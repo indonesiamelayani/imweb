@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Infografis extends CI_Controller
+class Galeri extends CI_Controller
 {
     public function __construct()
     {
@@ -12,16 +12,16 @@ class Infografis extends CI_Controller
     public function index()
     {
         $table              = 'halaman';
-        $id                 = 2;
+        $id                 = 3;
         $where              = array('id' => $id);
         $data['halaman']    = $this->MY_Model->singleData($table, $where);
-        $data['content']    = 'infografis';
+        $data['content']    = 'galeri';
         $this->load->view('templates/default', $data);
 
         $this->MY_Model->insert_activity(current_url());
     }
     
-    function edit()
+    function tambah()
     {
         $judul      = $this->input->post('judul');
         $deskripsi  = $this->input->post('deskripsi');
@@ -31,10 +31,35 @@ class Infografis extends CI_Controller
         $temp       = $_FILES['files']['tmp_name'];
         $location   = "files/";
         $time       = $this->common_variable->getTimeNow();
+
+            $form_data  = array(
+                'judul'         => $judul,
+                'isi'           => $isi,
+                'created_date'  => $now,
+                'created_by'    => $user,
+                'image'         => $filename
+            );
+
+            move_uploaded_file($temp, $location . $filename);
+            $this->MY_Model->tambah($form_data, $table);
+            redirect('admin/artikel/index');
+    }
+    
+    function edit()
+    {
+        $judul      = $this->input->post('judul');
+        $deskripsi  = $this->input->post('deskripsi');
+        $val        = $this->input->post('val');
+        $count      = count($_FILES['files']['name']);
+        $a = 0;
+        $filename   = $_FILES['files']['name'];
+        $temp       = $_FILES['files']['tmp_name'];
+        $location   = "files/";
+        $time       = $this->common_variable->getTimeNow();
         for ($i = 0; $i < $count; $i++) {
             if (strlen($filename[$i]) != 0) {
                 move_uploaded_file($temp[$i], $location . $filename[$i]);
-                $id         = 2;
+                $id         = 3;
                 $table      = 'halaman';
                 $field      = 'image';
                 $key        = "$.img".$i;
@@ -45,12 +70,12 @@ class Infografis extends CI_Controller
                     'deskripsi'     => $deskripsi,
                     'updated'       => $time
                 );
-            $where      = array('id' => 2);
+            $where      = array('id' => 3);
             $table      = 'halaman';
             $this->MY_Model->update($form_data, $where, $table);
             }
             
     }
-        redirect('admin/infografis');
+        redirect('admin/galeri');
     }
 }

@@ -132,12 +132,12 @@
                                 <span class="hide-menu"> Artikel </span>
                             </a>
                         </li>
-                        <li>
+<!--                        <li>
                             <a href="#" aria-expanded="false">
                                 <i class="icon-screen-desktop fa-fw"></i>
                                 <span class="hide-menu"> Banner </span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="<?php echo base_url('admin/infografis') ?>" aria-expanded="false">
                                 <i class="icon-chart fa-fw"></i>
@@ -145,7 +145,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false">
+                            <a href="<?php echo base_url('admin/galeri') ?>" aria-expanded="false">
                                 <i class="icon-grid fa-fw"></i>
                                 <span class="hide-menu"> Galeri </span>
                             </a>
