@@ -13,12 +13,14 @@
     <!-- ===== Bootstrap CSS ===== -->
     <link href="<?php echo base_url() ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
+
+    <!-- <link href="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/html5-editor/bootstrap-wysihtml5.css" />
     <link href="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/dropify/dist/css/dropify.min.css">
     <link href="<?php echo base_url() ?>assets/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <!-- <link href="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet"> -->
+    <link href="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/plugins/components/css-chart/css-chart.css" rel="stylesheet">
     <!-- ===== Animation CSS ===== -->
     <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
@@ -224,6 +226,12 @@
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
 
+    <!--Morris JavaScript -->
+    <!-- <script src="<?php echo base_url() ?>assets/plugins/components/raphael/raphael-min.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/morris-data.js"></script> -->
+    <script src="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -234,12 +242,6 @@
 
     <!-- end - This is for export functionality only -->
     <script>
-        $('.pollingchart').sparkline([20, 40, 30], {
-            type: 'pie',
-            height: '200',
-            resize: true,
-            sliceColors: ['#00bbd9', '#e74a25', '#2ecc71']
-        });
         $(function() {
             $('#myTable').DataTable();
             $('.textarea_editor').wysihtml5();
