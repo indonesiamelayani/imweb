@@ -14,14 +14,11 @@
     <link href="<?php echo base_url() ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
 
-    <!-- <link href="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.css" rel="stylesheet"> -->
+    <link href="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/html5-editor/bootstrap-wysihtml5.css" />
-    <link href="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/dropify/dist/css/dropify.min.css">
     <link href="<?php echo base_url() ?>assets/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/plugins/components/css-chart/css-chart.css" rel="stylesheet">
     <!-- ===== Animation CSS ===== -->
     <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
     <!-- ===== Custom CSS ===== -->
@@ -134,7 +131,7 @@
                                 <span class="hide-menu"> Artikel </span>
                             </a>
                         </li>
-<!--                        <li>
+                        <!--                        <li>
                             <a href="#" aria-expanded="false">
                                 <i class="icon-screen-desktop fa-fw"></i>
                                 <span class="hide-menu"> Banner </span>
@@ -191,9 +188,6 @@
         =============================== -->
     <!-- ===== jQuery ===== -->
     <script src="<?php echo base_url() ?>assets/plugins/components/jquery/dist/jquery.min.js"></script>
-    <!-- jQuery peity -->
-    <script src="<?php echo base_url() ?>assets/plugins/components/sparkline/jquery.sparkline.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/components/sparkline/jquery.charts-sparkline.js"></script>
     <!-- ===== Bootstrap JavaScript ===== -->
     <script src="<?php echo base_url() ?>assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- ===== Slimscroll JavaScript ===== -->
@@ -205,12 +199,8 @@
     <!-- ===== Custom JavaScript ===== -->
     <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
     <!-- ===== Plugin JS ===== -->
-    <script src="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/components/knob/jquery.knob.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/html5-editor/wysihtml5-0.3.0.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/html5-editor/bootstrap-wysihtml5.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/db3.js"></script>
     <!-- ===== Style Switcher JS ===== -->
     <script src="<?php echo base_url() ?>assets/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
     <!-- jQuery file upload -->
@@ -227,11 +217,15 @@
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
 
     <!--Morris JavaScript -->
-    <!-- <script src="<?php echo base_url() ?>assets/plugins/components/raphael/raphael-min.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/components/raphael/raphael-min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/morris-data.js"></script> -->
-    <script src="<?php echo base_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/morris-data.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -242,6 +236,33 @@
 
     <!-- end - This is for export functionality only -->
     <script>
+        new Morris.Line({
+            element: 'bulanan',
+            resize: true,
+            data: [{
+                y: '01',
+                item1: 2666
+            }, {
+                y: '02',
+                item1: 2778
+            }, {
+                y: '03',
+                item1: 4912
+            }, {
+                y: '04',
+                item1: 3767
+            }, {
+                y: '05',
+                item1: 6810
+            }],
+            xkey: 'y',
+            ykeys: ['item1'],
+            labels: ['Item 1'],
+            gridLineColor: '#e0e0e0',
+            lineColors: ['#8d9498'],
+            lineWidth: 1,
+            hideHover: 'auto'
+        });
         $(function() {
             $('#myTable').DataTable();
             $('.textarea_editor').wysihtml5();

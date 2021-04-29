@@ -210,17 +210,12 @@ class MY_Model extends CI_Model
         $this->db->query($query_string);
         $this->db->close();
     }
-    function count($field, $table, $where)
+    function countDistinct($field, $table, $where)
     {
         return $this->db->select('count(DISTINCT(' . $field . ')) as i')->from($table)->where($where)->limit(1)->get()->row();
-        // $this->db->select('count(komentar)');
-        // $this->db->from('komentar');
-        // $this->db->where('id_artikel', 3);
-        // $query = $this->db->get();
-        // return $query;
-        // $query = 'SELECT count(komentar) as jmlkomen
-        // FROM komentar
-        // WHERE id_artikel=3';
-        // return $this->db->query($query);
+    }
+    function count($field, $table, $where)
+    {
+        return $this->db->select('count(' . $field . ') as i')->from($table)->where($where)->limit(1)->get()->row();
     }
 }
