@@ -224,35 +224,9 @@ foreach ($list_poll->result_array() as $i) {
                                         },
                                     <?php } ?>
                                 ]
-
-                                // data: [{
-                                //     name: 'Chrome',
-                                //     y: 61.41,
-                                //     sliced: true,
-                                //     selected: true
-                                // }, {
-                                //     name: 'Internet Explorer',
-                                //     y: 11.84
-                                // }, {
-                                //     name: 'Firefox',
-                                //     y: 10.85
-                                // }, {
-                                //     name: 'Edge',
-                                //     y: 4.67
-                                // }, {
-                                //     name: 'Safari',
-                                //     y: 4.18
-                                // }, {
-                                //     name: 'Other',
-                                //     y: 7.05
-                                // }]
                             }]
                         });
                     </script>
-                    <!-- <div class="pollingchart text-center" id="chart"></div> -->
-                    <!-- <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button> -->
-                    <!-- <button type="submit" class="btn btn-danger btn-rounded pull-right">Hapus</button> -->
-                    <!-- </form> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Close</button>

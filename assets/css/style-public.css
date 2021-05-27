@@ -1,0 +1,136 @@
+body {
+    background-color: #F1F3F4 !important;
+}
+
+.shadow-box {
+    -moz-box-shadow: inset 0 -10px 25vh -10px white !important;
+    -webkit-box-shadow: inset 0 -10px 25vh -10px white !important;
+    box-shadow: inset 0 -10px 25vh -10px white !important;
+    height: 50px;
+}
+
+.size-18 {
+    font-size: 18px;
+}
+
+.size-14 {
+    font-size: 14px;
+}
+
+.size-20 {
+    font-size:20px;
+}
+
+.h-240 {
+    height:240px !important;
+}
+
+.h-141 {
+    max-height: 141px !important;
+}
+
+a.navbar-brand img {
+    width: 160px; 
+    height: 70px;
+}
+
+.navbar-nav {
+    font-family: Montserrat;
+    font-size: 14px;
+}
+
+.nav-link {
+    color: rgba(31, 51, 69, .7) !important;
+    margin-right: 39px !important;
+}
+
+.nav-link:hover {
+    color: #1F3345 !important;
+}x
+
+.link-danger {
+    color: #CB2828 !important;
+}
+
+.link-danger:hover {
+    color: #8D2020 !important;
+}
+
+.bg-blue {
+    background-color: #1F3345 !important;
+}
+
+.active {
+    color: #1F3345 !important;
+}
+
+.header-team {
+    border-bottom: 2px solid #CB2828;
+}
+
+.nopadding {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.img-shadow {
+    -moz-box-shadow: inset 10px 10px 50px #fff;
+    -webkit-box-shadow: inset 10px 10px 50px #fff;
+    box-shadow: inset -10px 10px 50px #fff;
+}
+
+.article-shadow {
+    text-shadow: 2px 0 12px white,
+                -3px 2px 15px white, 
+                -5px 4px 15px white, 
+                -7px 6px 15px white, 
+                -9px 8px 15px white, 
+                -11px 10px 15px white;
+}
+
+.article-link {
+    text-decoration: none;   
+}
+
+.article-link:hover {
+    color: rgba(0, 0, 0, .5) !important;
+    transition-duration: .3s;
+}
+
+.tujuan {
+    background: url('../img/bg_karsa.png') no-repeat; 
+    background-size: cover;
+}
+
+.tujuan-1 {
+    top: 8%; 
+    left: 16%; 
+    max-width: 220px; 
+    max-height: 394px;
+}
+
+.tujuan-2 {
+    top: 8%; 
+    left: 9%; 
+    max-width: 220px; 
+    max-height: 394px;
+}
+
+@media (max-width: 992px) {
+    .img-header {
+        width: 435px;
+        height: 396px;
+    }
+    .row-2.row {
+        height: 262px !important;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .img-header {
+        width: 299px;
+        height: 266px;
+    }
+
+}
