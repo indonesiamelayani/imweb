@@ -9,11 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="indonesia-melayani">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/plugins/images/logo_im_sm.png">
-    <title>Indonesia Melayani</title>
+    <title>Indonesia Melayani | Admin</title>
     <!-- ===== Bootstrap CSS ===== -->
     <link href="<?php echo base_url() ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
-
     <!-- <link href="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/html5-editor/bootstrap-wysihtml5.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/dropify/dist/css/dropify.min.css">
