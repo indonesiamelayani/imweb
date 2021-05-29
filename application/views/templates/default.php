@@ -14,7 +14,7 @@
     <link href="<?php echo base_url() ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
 
-    <link href="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.css" rel="stylesheet">
+    <!-- <link href="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/html5-editor/bootstrap-wysihtml5.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/components/dropify/dist/css/dropify.min.css">
     <link href="<?php echo base_url() ?>assets/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
@@ -217,9 +217,9 @@
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
 
     <!--Morris JavaScript -->
-    <script src="<?php echo base_url() ?>assets/plugins/components/raphael/raphael-min.js"></script>
+    <!-- <script src="<?php echo base_url() ?>assets/plugins/components/raphael/raphael-min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/morris-data.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/morris-data.js"></script> -->
 
 
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> -->
