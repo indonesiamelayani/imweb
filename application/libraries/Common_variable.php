@@ -12,6 +12,18 @@ class Common_variable
     {
         return 2;
     }
+    public function getIdKarsa()
+    {
+        return 2;
+    }
+    public function getIdKarya()
+    {
+        return 3;
+    }
+    public function getIdStruktur()
+    {
+        return 4;
+    }
     public function getGroupManajemen()
     {
         return 3;
@@ -23,6 +35,10 @@ class Common_variable
     public function getGroupAktifitas()
     {
         return 5;
+    }
+    public function getIdPublikasi()
+    {
+        return 6;
     }
     public function getTimeNow()
     {

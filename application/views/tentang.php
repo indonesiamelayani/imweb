@@ -9,7 +9,7 @@
                     <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
                         <div class="form-group">
                             <div class="col-md-12" style="margin-bottom:20px">
-                                <textarea class="form-control" name="deskripsi[]" style="border-radius: 8px;" rows="10"><?php echo $desc->deskripsi; ?></textarea>
+                                <textarea class="form-control textarea_editor" name="deskripsi[]" style="border-radius: 8px;" rows="10"><?php echo $desc->deskripsi; ?></textarea>
                             </div>
                             <div class="row" style="margin-left:0px">
                                 <div class="col-sm-3 ol-md-6 col-xs-12">
