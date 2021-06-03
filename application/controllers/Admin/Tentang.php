@@ -16,10 +16,18 @@ class Tentang extends CI_Controller
         $data['desc']       = $this->getInfoDesc();
         $data['manajemen']  = $this->getInfoManajemen();
         $data['kajian']     = $this->getInfoKajian();
+        $data['alur_p']     = $this->getInfoAlurPublikasi();
         $data['aktifitas']  = $this->getInfoAktifitas();
         $data['content']    = 'tentang';
-        // var_dump($data['aktifitas']->result_array());
+        // var_dump($data['alur_p']->result_array());
         $this->load->view('templates/default', $data); ////asd
+    }
+    function getInfoAlurPublikasi()
+    {
+        $table  = 'tentang';
+        $group  = $this->common_variable->getGroupAlurPublikasi();
+        $where  = array('group' => $group);
+        return $this->MY_Model->getList($table, $where);
     }
     function getInfoAktifitas()
     {
@@ -65,7 +73,7 @@ class Tentang extends CI_Controller
         $location   = "files/";
         $time       = $this->common_variable->getTimeNow();
         for ($i = 0; $i < $count; $i++) {
-            if ($group[$i] == 5) {
+            if ($group[$i] == 5 || $group[$i] == 6) {
                 $form_data = array(
                     'deskripsi'     => $deskripsi[$i],
                     'last_update'   => $time

@@ -40,6 +40,10 @@ class Common_variable
     {
         return 6;
     }
+    public function getGroupAlurPublikasi()
+    {
+        return 6;
+    }
     public function getTimeNow()
     {
         return date('Y-m-d H:i:s');

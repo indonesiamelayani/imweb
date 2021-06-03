@@ -15,13 +15,22 @@ class Tentang extends CI_Controller
         $data['karsa']      = $this->getInfoKarsa();
         $data['karya']      = $this->getInfoKarya();
         $data['struktur']   = $this->getInfoStruktur();
+        $data['alur_p']     = $this->getInfoAlurPublikasi();
         $data['publikasi']  = $this->getInfoPublikasi();
         $data['manajemen']  = $this->getInfoManajemen();
         $data['kajian']     = $this->getInfoKajian();
         $data['aktivitas']  = $this->getInfoAktifitas();
-        // var_dump($data['aktivitas']->result_array());
+        // var_dump($data['alur_p']->result_array());
         $data['content']    = 'public/tentang';
         $this->load->view('templates/public', $data);
+        // $this->MY_Model->insert_activity(current_url());
+    }
+    function getInfoAlurPublikasi()
+    {
+        $table  = 'tentang';
+        $group  = $this->common_variable->getGroupAlurPublikasi();
+        $where  = array('group' => $group);
+        return $this->MY_Model->getList($table, $where);
     }
     function getInfoAktifitas()
     {
