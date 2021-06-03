@@ -24,7 +24,7 @@
                     </form>
                     <!-- ./DESKRIPSI UMUM -->
                     <hr>
-                    <!-- KARYA DAN KKARSA-->
+                    <!-- KARYA DAN KARSA-->
                     <div class="row">
                         <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
                             <?php
@@ -53,7 +53,7 @@
                     </div>
                     <!-- ./KARSA DAN KARYA -->
                     <hr>
-                    <!-- STRUKTUR ALUR PUBLIKASI -->
+                    <!-- STRUKTUR Mekanisme PUBLIKASI -->
                     <div class="row">
                         <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
                             <?php
@@ -78,6 +78,37 @@
                         </form>
                     </div>
                     <!-- ./STRUKTUR ALUR PUBLIKASI -->
+                    <hr>
+                    <!-- ALUR PUBLIKASI -->
+                    <h3 class="box-title m-b-0">Alur Publikasi</h3><br>
+                    <div class="row">
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/tentang/edit">
+                            <?php
+                            foreach ($alur_p->result_array() as $i) {
+                                $id         = $i['id'];
+                                $judul      = $i['judul'];
+                                $deskripsi  = $i['deskripsi'];
+                                $image      = $i['image'] ?>
+                                <div class="col-md-3" style="padding-right: 10px;">
+                                    <div class="form-group">
+                                        <input type="hidden" name="id[]" value="<?php echo $id ?>">
+                                        <input type="hidden" name="group[]" value="<?php echo $this->common_variable->getGroupAlurPublikasi() ?>">
+                                        <h3 class="box-title" style="padding-left: 15px;"><?php echo $judul ?></h3>
+                                        <div class="col-md-12" style="margin-bottom:20px">
+                                            <textarea class="form-control" name="deskripsi[]" style="border-radius: 8px;" rows="4"><?php echo $deskripsi ?></textarea>
+                                        </div>
+                                        <div class="row" style="margin-left:0px">
+                                            <div class="col-sm-8">
+                                                <input type="file" name="files[]" id="input-file-now-custom-3" class="dropify" style="border-radius: 8px;" data-height="110" data-default-file="<?php echo base_url() ?>files/<?php echo $image ?>" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <button type="submit" class="btn btn-danger pull-right" style="margin:0px 25px 0px;">Simpan</button>
+                        </form>
+                    </div>
+                    <!-- ./ALUR PUBLIKASI -->
                     <hr>
                     <!-- KAJIAN PENERBITAN -->
                     <h3 class="box-title m-b-0">Kajian Penerbitan</h3><br>

@@ -55,27 +55,16 @@
     <div class="col-12">
       <h1>Alur <span class="text-danger">Publikasi</span></h1>
       <div class="row">
-        <div class="col-md-3 text-center mb-5">
-          <img class="img-fluid my-5" src="assets/img/ic_data.png" alt="">
-          <h5 class="bg-danger font-weight-bold text-white text-center py-2 mb-3">Tim Data</h5>
-          <p class="text-muted">Mengumpulkan serta mengolah data dan informasi</p>
-        </div>
-        <div class="col-md-3 text-center mb-5">
-          <img class="img-fluid my-5" src="assets/img/ic_redaksi.png" alt="">
-          <h5 class="bg-danger font-weight-bold text-white text-center py-2 mb-3">Tim Redaksi</h5>
-          <p class="text-muted">Menyajikan data dengan menyusun artikel beserta arahan untuk pengaplikasian artikel di aplikasi
-            IM+ dan media sosial lainnya</p>
-        </div>
-        <div class="col-md-3 text-center mb-5">
-          <img class="img-fluid my-5" src="assets/img/ic_kreatif.png" alt="">
-          <h5 class="bg-danger font-weight-bold text-white text-center py-2 mb-3">Tim Kreatif</h5>
-          <p class="text-muted">Menyajikan Artikel dengan sentuhan kreatif baik berupa desain grafis maupun videografis</p>
-        </div>
-        <div class="col-md-3 text-center mb-5">
-          <img class="img-fluid my-5" src="assets/img/ic_kontrol.png" alt="">
-          <h5 class="bg-danger font-weight-bold text-white text-center py-2 mb-3">Tim Kontrol Kualitas</h5>
-          <p class="text-muted">Melakukan kontrol kualitas baik terhadap data, artikel, maupun visual yang akan diterbitkan</p>
-        </div>
+        <?php foreach ($alur_p->result_array() as $i) {
+          $judul      = $i['judul'];
+          $deskripsi  = $i['deskripsi'];
+          $image      = $i['image'] ?>
+          <div class="col-md-3 text-center mb-5">
+            <img class="img-fluid my-5" src="<?php echo base_url() . "files/" . $image ?>" alt="">
+            <h5 class="bg-danger font-weight-bold text-white text-center py-2 mb-3"><?php echo $judul ?></h5>
+            <p class="text-muted"><?php echo $deskripsi ?></p>
+          </div>
+        <?php } ?>
       </div>
     </div>
   </div>
