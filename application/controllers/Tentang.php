@@ -23,7 +23,7 @@ class Tentang extends CI_Controller
         // var_dump($data['alur_p']->result_array());
         $data['content']    = 'public/tentang';
         $this->load->view('templates/public', $data);
-        // $this->MY_Model->insert_activity(current_url());
+        $this->MY_Model->insert_activity(current_url());
     }
     function getInfoAlurPublikasi()
     {
