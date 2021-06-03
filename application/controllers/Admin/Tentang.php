@@ -62,13 +62,8 @@ class Tentang extends CI_Controller
         $id         = $this->input->post('id');
         $group      = $this->input->post('group');
         $count      = count($id);
-        // $filename   = $_FILES['files']['name'];
-        // $temp       = $_FILES['files']['tmp_name'];
         $location   = "files/";
         $time       = $this->common_variable->getTimeNow();
-        // echo $count;
-        // var_dump($group);
-        // die();
         for ($i = 0; $i < $count; $i++) {
             if ($group[$i] == 5) {
                 $form_data = array(

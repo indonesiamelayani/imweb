@@ -235,38 +235,14 @@
 
     <!-- end - This is for export functionality only -->
     <script>
-        new Morris.Line({
-            element: 'bulanan',
-            resize: true,
-            data: [{
-                y: '01',
-                item1: 2666
-            }, {
-                y: '02',
-                item1: 2778
-            }, {
-                y: '03',
-                item1: 4912
-            }, {
-                y: '04',
-                item1: 3767
-            }, {
-                y: '05',
-                item1: 6810
-            }],
-            xkey: 'y',
-            ykeys: ['item1'],
-            labels: ['Item 1'],
-            gridLineColor: '#e0e0e0',
-            lineColors: ['#8d9498'],
-            lineWidth: 1,
-            hideHover: 'auto'
-        });
         $(function() {
             $('#myTable').DataTable();
             $('.textarea_editor').wysihtml5();
             $('.textarea_editor1').wysihtml5();
             $('.tambah').wysihtml5({
+                "image": false, //Button to insert an image.
+            });
+            $('.desc').wysihtml5({
                 "image": false, //Button to insert an image.
             });
             $('.edit').wysihtml5({
