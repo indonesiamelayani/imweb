@@ -20,9 +20,7 @@ class Artikel extends CI_Controller
     }
     function getCountKomentar()
     {
-        // $id_artikel = '';
         $table = 'artikel';
-        // $where = array('id_artikel' => $id_artikel);
         $orderby = 'artikel.id_artikel';
         $destination = 'komentar';
         $join = '' . $destination . '.id_artikel=' . '' . $table . '.id_artikel';
@@ -101,8 +99,12 @@ class Artikel extends CI_Controller
     {
         $id     = $this->input->post('id_artikel');
         $where  = array('id_artikel' => $id);
+        $table = 'history_artikel';
+        $this->MY_Model->hapus($where, $table); //from history_artikel
+        $table = 'komentar';
+        $this->MY_Model->hapus($where, $table); //from komentar artikel
         $table  = 'artikel';
-        $this->MY_Model->hapus($where, $table);
+        $this->MY_Model->hapus($where, $table); //from artikel
         redirect('admin/artikel/index');
     }
 }

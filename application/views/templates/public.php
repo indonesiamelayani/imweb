@@ -91,7 +91,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto font-weight-bold">
-                    <a class="nav-item nav-link text-bold" href="article.html">ARTIKEL</a>
+                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('artikel') ?>">ARTIKEL</a>
                     <a class="nav-item nav-link text-bold" href="<?php echo base_url('infografis') ?>">INFO GRAFIS</a>
                     <a class="nav-item nav-link text-bold" href="bank_data.html">BANK DATA</a>
                     <a class="nav-item nav-link text-bold" href="lokakarya.html">LOKAKARYA</a>
