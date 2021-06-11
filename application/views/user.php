@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Status</label>
+                        <label class="control-label">Peran</label>
                         <div class="radio-list">
                             <label class="radio-inline p-0">
                                 <div class="radio radio-info">
@@ -137,24 +137,24 @@ foreach ($user->result_array() as $i) {
                     <form method="post" action="<?php echo base_url() ?>admin/user/edit">
                         <div class="white-box">
                             <h3 class="box-title">Unggah Foto Profil</h3>
-                            <input type="file" id="input-file-now" name="files[]" accept=".jpg,.jpeg.,png" class="dropify"/>
+                            <input type="file" id="input-file-now" name="files[]" accept=".jpg,.jpeg.,png" class="dropify" />
                         </div>
-                        <input type="hidden" name="file_old" value="<?php echo $i['image'];?>">
+                        <input type="hidden" name="file_old" value="<?php echo $i['image']; ?>">
                         <div class="form-group">
                             <label class="control-label" for="example-email">Nama :</label>
-                            <input type="text" name="nama" class="form-control"  value="<?php echo $i['nama'];?>" >
+                            <input type="text" name="nama" class="form-control" value="<?php echo $i['nama']; ?>">
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="message-text" class="control-label">Username:</label>
-                                    <input type="text" name="username" class="form-control" value="<?php echo $i['username'];?>">
+                                    <input type="text" name="username" class="form-control" value="<?php echo $i['username']; ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="message-text" class="control-label">Email:</label>
-                                    <input type="email" name="email" class="form-control" value="<?php echo $i['email'];?>">
+                                    <input type="email" name="email" class="form-control" value="<?php echo $i['email']; ?>">
                                 </div>
                             </div>
                         </div>
@@ -172,7 +172,7 @@ foreach ($user->result_array() as $i) {
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" name="password_old" value="<?php echo $i['password'];?>">
+                        <input type="hidden" name="password_old" value="<?php echo $i['password']; ?>">
                         <div class="form-group">
                             <label class="control-label">Status</label>
                             <div class="radio-list">
