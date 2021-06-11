@@ -7,12 +7,15 @@ class Artikel extends CI_Controller
     {
         parent::__construct();
         $this->load->model('core/MY_Model');
+        $this->load->helper('text');
         if ($_SESSION['username'] == null) redirect(base_url('login'));
     }
     public function index()
     {
+        $data['kategori']   = array('Digilife', 'Pelayanan', 'Keamanan', 'Politik');
         $data['artikel']    = $this->getListArtikel();
         $data['content']    = 'artikel';
+        // var_dump($data['artikel']->result_array());
         $this->load->view('templates/default', $data); ////asd
     }
     function getCountKomentar()
@@ -33,6 +36,7 @@ class Artikel extends CI_Controller
     }
     function tambah()
     {
+        $kategori   = $this->input->post('kategori');
         $judul      = $this->input->post('judul');
         $isi        = $this->input->post('isi');
         $user       = $_SESSION['username'];
@@ -46,6 +50,7 @@ class Artikel extends CI_Controller
         $check      = $this->MY_Model->check('artikel', array('image' => $filename));
         if ($check == FALSE) {
             $form_data  = array(
+                'kategori'      => $kategori,
                 'judul'         => $judul,
                 'isi'           => $isi,
                 'created_date'  => $now,

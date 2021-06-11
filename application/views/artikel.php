@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th>Judul</th>
+                            <th>Kategori</th>
                             <th>Tanggal dan Waktu</th>
                             <th>Dilihat</th>
                             <th>Komentar</th>
@@ -21,8 +22,9 @@
                         <?php
                         foreach ($artikel->result_array() as $i) {
                             $id_artikel = $i['id_artikel'];
-                            $judul      = $i['judul'];
+                            $judul      = word_limiter($i['judul'], 3);;
                             $tanggal    = $i['created_date'];
+                            $kat   = $i['kategori'];
 
                             $komen = $this->MY_Model->count('komentar', 'komentar', array('id_artikel' => $id_artikel))->i;
                             $lihat = $this->MY_Model->count('id_history', 'history_artikel', array('id_artikel' => $id_artikel))->i;
@@ -30,6 +32,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $judul ?></td>
+                                <td><?php echo $kat ?></td>
                                 <td><?php echo date('D, d M Y', strtotime($tanggal))  ?> WIB</td>
                                 <td><?php echo $lihat ?> Kali</td>
                                 <td><?php echo $komen ?></td>
@@ -62,13 +65,28 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="<?php echo base_url() ?>admin/artikel/tambah" enctype="multipart/form-data">
-                    <div class="white-box">
-                        <h3 class="box-title">Unggah Banner</h3>
-                        <input type="file" name="file[]" id="input-file-now-custom-2" class="dropify" data-height="500" required />
+                    <div class="row" style="margin-bottom: 25px;">
+                        <div class="col-md-6">
+                            <h5 class="box-title">Unggah Banner</h5>
+                            <input type="file" name="file[]" id="input-file-now-custom-2" class="dropify" data-height="200" required />
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="example-email">Judul :</label>
                         <input type="text" name="judul" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Kategori</label>
+                        <div class="radio-list">
+                            <?php foreach ($kategori as $i) { ?>
+                                <label class="radio-inline p-0">
+                                    <div class="radio radio-info">
+                                        <input type="radio" name="kategori" id="<?php echo $i ?>" value="<?php echo $i ?>" required>
+                                        <label for="<?php echo $i ?>"><?php echo $i ?></label>
+                                    </div>
+                                </label>
+                            <?php } ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Isi :</label>
@@ -87,6 +105,7 @@ foreach ($artikel->result_array() as $i) {
     $id_artikel = $i['id_artikel'];
     $judul      = $i['judul'];
     $isi        = $i['isi'];
+    $image      = $i['image'];
 ?>
     <!-- Modal Tambahh Edit -->
     <div class="modal fade" id="modaledit<?php echo $id_artikel ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -98,9 +117,11 @@ foreach ($artikel->result_array() as $i) {
                 </div>
                 <div class="modal-body">
                     <form method="post" action="<?php echo base_url() ?>admin/artikel/edit" enctype="multipart/form-data">
-                        <div class="white-box">
-                            <h3 class="box-title">Unggah Banner</h3>
-                            <input type="file" name="file[]" id="input-file-now-custom-2" class="dropify" data-height="500" />
+                        <div class="row" style="margin-bottom: 25px;">
+                            <div class="col-md-6">
+                                <h5 class="box-title">Unggah Banner</h5>
+                                <input type="file" name="file[]" id="<?php echo $id_artikel ?>" class="dropify" data-height="200" data-default-file="<?php echo base_url() ?>files/<?php echo $image ?>" required />
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="example-email">Judul :</label>
@@ -108,7 +129,7 @@ foreach ($artikel->result_array() as $i) {
                         </div>
                         <div class="form-group">
                             <label class="control-label">Isi :</label>
-                            <textarea class="edit form-control" rows="15" name="isi" placeholder="Enter text ..."><?php echo $isi ?></textarea>
+                            <textarea class="form-control" rows="15" name="isi" placeholder="Enter text ..."><?php echo $isi ?></textarea>
                         </div>
                         <input type="hidden" name="id_artikel" value="<?php echo $id_artikel ?>">
                         <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Close</button>
@@ -140,18 +161,4 @@ foreach ($artikel->result_array() as $i) {
 <?php
 }
 ?>
-<script>
-    var password = document.getElementById("password"),
-        confirm_password = document.getElementById("confirm_password");
-
-    function validatePassword() {
-        if (password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
-        } else {
-            confirm_password.setCustomValidity('');
-        }
-    }
-
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
-</script>
+<!-- <script>edit -->
