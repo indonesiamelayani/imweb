@@ -22,13 +22,12 @@
                         <?php
                         foreach ($artikel->result_array() as $i) {
                             $id_artikel = $i['id_artikel'];
-                            $judul      = word_limiter($i['judul'], 3);;
+                            $judul      = word_limiter($i['judul'], 2);;
                             $tanggal    = $i['created_date'];
                             $kat   = $i['kategori'];
 
                             $komen = $this->MY_Model->count('komentar', 'komentar', array('id_artikel' => $id_artikel))->i;
                             $lihat = $this->MY_Model->count('id_history', 'history_artikel', array('id_artikel' => $id_artikel))->i;
-                            // $count = $this->MY_Model->count_data($komen);
                         ?>
                             <tr>
                                 <td><?php echo $judul ?></td>
