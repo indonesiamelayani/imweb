@@ -38,6 +38,11 @@ class MY_Model extends CI_Model
             return $query->result_array();
         }
     }
+
+    function singleDataCustom($field, $table)
+    {
+        return $this->db->select($field)->from($table)->limit(1)->get()->row();
+    }
     function singleData($table, $where)
     {
         return $this->db->select('*')->from($table)->where($where)->limit(1)->get()->row();
@@ -60,6 +65,16 @@ class MY_Model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+    function getListOrderbyLimit($table, $where, $orderby, $limit)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where($where);
+        $this->db->order_by($orderby);
+        $this->db->limit($limit);
+        $query = $this->db->get();
+        return $query;
+    }
     function getListData($table)
     {
         $this->db->select('*');
@@ -72,6 +87,25 @@ class MY_Model extends CI_Model
         $this->db->select('*');
         $this->db->from($table);
         $this->db->order_by($orderby);
+        $query = $this->db->get();
+        return $query;
+    }
+    function getMaxDataOrderbyDESC($table, $orderby)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->order_by($orderby, 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get()->row();
+        return $query;
+    }
+    function getListOrderbyDESCLimit($table, $where, $orderby, $limit)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where($where);
+        $this->db->order_by($orderby, 'DESC');
+        $this->db->limit($limit);
         $query = $this->db->get();
         return $query;
     }

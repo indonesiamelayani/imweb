@@ -24,7 +24,7 @@
                             $id_artikel = $i['id_artikel'];
                             $judul      = word_limiter($i['judul'], 2);;
                             $tanggal    = $i['created_date'];
-                            $kat   = $i['kategori'];
+                            $kat        = $i['kategori'];
 
                             $komen = $this->MY_Model->count('komentar', 'komentar', array('id_artikel' => $id_artikel))->i;
                             $lihat = $this->MY_Model->count('id_history', 'history_artikel', array('id_artikel' => $id_artikel))->i;
@@ -119,7 +119,7 @@ foreach ($artikel->result_array() as $i) {
                         <div class="row" style="margin-bottom: 25px;">
                             <div class="col-md-6">
                                 <h5 class="box-title">Unggah Banner</h5>
-                                <input type="file" name="file[]" id="<?php echo $id_artikel ?>" class="dropify" data-height="200" data-default-file="<?php echo base_url() ?>files/<?php echo $image ?>" required />
+                                <input type="file" name="file[]" id="<?php echo $id_artikel ?>" class="dropify" data-height="200" data-default-file="<?php echo base_url() ?>files/<?php echo $image ?>" />
                             </div>
                         </div>
                         <div class="form-group">

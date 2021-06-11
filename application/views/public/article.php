@@ -17,45 +17,53 @@
 <div class="container row-1 my-3">
   <div class="row">
     <div class="col-md-7 col-sm-12 mb-3">
-      <img class="img-header w-100" src="assets/img/logo-im.jpg" style="height: 455px;" alt="">
-      <div class="position-relative d-block" style="top: -10%;">
+      <img class="img-header w-100" src="<?php echo base_url() . "files/" .  $besar->image ?>" style="height: 455px;" alt="">
+      <div class="position-relative d-block" style="top: -9%;">
         <a class="text-dark nav-link position-absolute px-2 d-inline-block" href="#">
-          <h5>PELAYANAN PUBLIK RAMAH HAM</h5>
+          <h5><?php echo $besar->judul ?></h5>
         </a>
         <div class="shadow-box" style="top: -7%;"></div>
       </div>
     </div>
     <div class="col-md-5 col-sm-12">
       <div class="row">
-        <div class="col-12">
-          <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="assets/img/logo-im.jpg" class="w-100 h-141" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body py-1" style="padding-right: 0 !important;">
-                  <h5 class="card-title size-18"><a class="nav-link nopadding" href="#">Potret Penyekatan di Perbatasan
-                      Yogyakarta</a></h5>
-                  <p class="card-text size-14">
-                    Pengendara yang melintas di Jalan Raya Jogja-Magelang, Yogyakarta, dihadang petugas Satgas COVID-19. Pelintas wajib menunjukan surat keterangan bebas Corona.
-                  </p>
-                  <div class="row" style="font-size: 12px;">
-                    <div class="col-8">
-                      <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                      <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> 90</small>
-                    </div>
-                    <div class="col-4 text-end">
-                      <a href="#" class="btn btn-sm btn-danger bg-blue border-0">Readmore</a>
+        <?php foreach ($kanan->result_array() as $i) {
+          $image  = $i['image'];
+          $judul  = $i['judul'];
+          $isi    = $i['isi'];
+          $jam    = $i['created_date'];
+          $komen  = $i['countComment'];
+        ?>
+
+          <div class="col-12">
+            <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="<?php echo base_url() . "files/" .  $image ?>" class="w-100 h-141" alt="<?php echo $judul ?>">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body py-1" style="padding-right: 0 !important;">
+                    <h5 class="card-title size-18"><a class="nav-link nopadding" href="#"><?php echo $judul ?></a></h5>
+                    <p class="card-text size-14">
+                      Pengendara yang melintas di Jalan Raya Jogja-Magelang, Yogyakarta, dihadang petugas Satgas COVID-19. Pelintas wajib menunjukan surat keterangan bebas Corona.
+                    </p>
+                    <div class="row" style="font-size: 12px;">
+                      <div class="col-8">
+                        <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> <?php echo date('H:i - d M Y', strtotime($jam)) ?></small>
+                        <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> <?php echo $komen ?></small>
+                      </div>
+                      <div class="col-4 text-end">
+                        <a href="#" class="btn btn-sm btn-danger bg-blue border-0">Readmore</a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <hr class="nopadding" />
             </div>
-            <hr class="nopadding" />
           </div>
-        </div>
-        <div class="col-12">
+        <?php } ?>
+        <!-- <div class="col-12">
           <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
@@ -81,7 +89,7 @@
             </div>
             <hr class="nopadding" />
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
