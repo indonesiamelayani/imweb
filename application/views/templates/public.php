@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style-public.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style-public.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
@@ -84,7 +84,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/img/logo.png" alt="">
+                <img src="<?php echo base_url() ?>assets/img/logo.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -137,10 +137,10 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <h5 class="mb-0">Follow Us</h5>
 
-                    <a href="#"><img class="mx-2 my-2" src="assets/img/facebook.png" width="30" height="30" alt="facebook logo"></a>
-                    <a href="#"><img class="mx-2 my-2" src="assets/img/instagram.png" width="30" height="30" alt="instagram logo"></a>
-                    <a href="#"><img class="mx-2 my-2" src="assets/img/twitter.png" width="30" height="30" alt="twitter logo"></a>
-                    <a href="#"><img class="mx-2 my-2" src="assets/img/youtube.png" width="30" height="30" alt="youtube logo"></a>
+                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/facebook.png" width="30" height="30" alt="facebook logo"></a>
+                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/instagram.png" width="30" height="30" alt="instagram logo"></a>
+                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/twitter.png" width="30" height="30" alt="twitter logo"></a>
+                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/youtube.png" width="30" height="30" alt="youtube logo"></a>
                 </div>
                 <!--Grid column-->
             </div>

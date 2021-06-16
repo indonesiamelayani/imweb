@@ -28,6 +28,7 @@
     <div class="col-md-5 col-sm-12">
       <div class="row">
         <?php foreach ($kanan->result_array() as $i) {
+          $id     = $i['id_artikel'];
           $image  = $i['image'];
           $judul  = $i['judul'];
           $isi    = $i['isi'];
@@ -43,7 +44,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body py-1" style="padding-right: 0 !important;">
-                    <h5 class="card-title size-18"><a class="nav-link nopadding" href="#"><?php echo $judul ?></a></h5>
+                    <h5 class="card-title size-18"><a class="nav-link nopadding" href="<?php echo base_url('artikel/show/') . $id ?>"><?php echo $judul ?></a></h5>
                     <p class="card-text size-14">
                       <?php echo word_limiter($isi, 23) ?>
                     </p>

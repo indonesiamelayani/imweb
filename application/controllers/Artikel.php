@@ -24,9 +24,16 @@ class Artikel extends CI_Controller
         $data['besar']      = $this->getFavArtikel();
         $data['kanan']      = $this->getArtikelKanan($data['besar']->id_artikel);
         $data['content']    = 'public/article';
-        // var_dump($data['baru']->result_array());
+        // var_dump($data['kanan']->result_array());
         $this->load->view('templates/public', $data);
         // $this->MY_Model->insert_activity(current_url());
+    }
+    public function show()
+    {
+        $id     = $this->uri->segment(3);
+        // echo $id;
+        $data['content']    = 'public/detail';
+        $this->load->view('templates/public', $data);
     }
     function getFavArtikel()
     {
