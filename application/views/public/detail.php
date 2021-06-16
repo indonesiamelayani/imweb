@@ -18,63 +18,42 @@
       <div class="row">
         <div class="col-12">
           <h4 class="text-danger">Popular</h4>
-          <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4 col-sm-12">
-                <img src="<?php echo base_url() ?>assets/img/logo-im.jpg" class="w-100" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body py-1">
-                  <h5 class="card-title"><a class="nav-link nopadding" href="#">Pemkot Bekasi Targetkan Lampu Jalan di Kayuringin Nyala Minggu Ini</a></h5>
-                  <div class="row mt-4" style="font-size: 12px;">
-                    <div class="col-12">
-                      <small class="text-muted mr-3"><img src="<?php echo base_url() ?>assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                      <small class="text-muted"><img src="<?php echo base_url() ?>assets/img/ic-comment.png" alt=""> 90</small>
+          <?php
+          foreach ($popular->result_array() as $i) {
+            $id     = $i['id_artikel'];
+            $image  = $i['image'];
+            $judul  = $i['judul'];
+            $isi    = $i['isi'];
+            $jam    = $i['created_date'];
+            $komen  = isset($i['countComment']) ? $i['countComment'] : 0;
+
+          ?>
+            <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4 col-sm-12">
+                  <img src="<?php echo base_url() . 'files/' . $image ?>" class="w-100" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body py-1">
+                    <h5 class="card-title">
+                      <a class="nav-link nopadding" href="<?php echo base_url('artikel/show/') . $id ?>"><?php echo $judul ?></a>
+                    </h5>
+                    <div class="row mt-4" style="font-size: 12px;">
+                      <div class="col-12">
+                        <small class="text-muted mr-3">
+                          <img src="<?php echo base_url() ?>assets/img/ic-clock.png" alt=""> <?php echo date('H:i - d M Y', strtotime($jam)) ?>
+                        </small>
+                        <small class="text-muted"><img src="<?php echo base_url() ?>assets/img/ic-comment.png" alt=""> <?php echo $komen ?></small>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <hr class="mt-2" />
               </div>
-              <hr class="mt-2" />
             </div>
-          </div>
-          <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4 col-sm-12">
-                <img src="<?php echo base_url() ?>assets/img/logo-im.jpg" class="w-100" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body py-1">
-                  <h5 class="card-title"><a class="nav-link nopadding" href="#">Pemkot Bekasi Targetkan Lampu Jalan di Kayuringin Nyala Minggu Ini</a></h5>
-                  <div class="row mt-4" style="font-size: 12px;">
-                    <div class="col-12">
-                      <small class="text-muted mr-3"><img src="<?php echo base_url() ?>assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                      <small class="text-muted"><img src="<?php echo base_url() ?>assets/img/ic-comment.png" alt=""> 90</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="mt-2" />
-            </div>
-          </div>
-          <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4 col-sm-12">
-                <img src="<?php echo base_url() ?>assets/img/logo-im.jpg" class="w-100" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body py-1">
-                  <h5 class="card-title"><a class="nav-link nopadding" href="#">Pemkot Bekasi Targetkan Lampu Jalan di Kayuringin Nyala Minggu Ini</a></h5>
-                  <div class="row mt-4" style="font-size: 12px;">
-                    <div class="col-12">
-                      <small class="text-muted mr-3"><img src="<?php echo base_url() ?>assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                      <small class="text-muted"><img src="<?php echo base_url() ?>assets/img/ic-comment.png" alt=""> 90</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="mt-2" />
-            </div>
-          </div>
+          <?php
+          }
+          ?>
         </div>
         <div class="col-md-12 col-sm-12">
           <h4 class="text-danger">INFO TERKINI</h4>

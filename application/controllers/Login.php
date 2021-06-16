@@ -25,6 +25,8 @@ class Login extends CI_Controller
         if ($check == TRUE) {
             if (password_verify($password, $check->password)) {
                 session_start();
+                $_SESSION['nama']       = $check->nama;
+                $_SESSION['role']       = $check->role;
                 $_SESSION['username'] = $username;
                 redirect('admin/home/index');
                 die();

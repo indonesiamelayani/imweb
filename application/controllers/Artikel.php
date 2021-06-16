@@ -11,7 +11,6 @@ class Artikel extends CI_Controller
         parent::__construct();
         $this->load->model('core/MY_Model');
         $this->load->helper('text');
-        $this->load->library('Common_variable');
     }
 
     public function index()
@@ -32,9 +31,36 @@ class Artikel extends CI_Controller
     {
         $id                 = $this->uri->segment(3);
         $data['utama']      = $this->getArtikel($id);
+        $data['popular']    = $this->getArtikelPopular();
         $data['content']    = 'public/detail';
-        // var_dump($data['artikel']);
+        // var_dump($data['popular']->result_array());
         $this->load->view('templates/public', $data);
+        $this->save_history($id);
+    }
+    function save_history($id_artikel)
+    {
+        $userid     = isset($_SESSION['username']) ? trim($_SESSION['username']) : '';
+        $agent      = (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
+        $ipaddr     = $this->libs->get_client_ip();
+        $table      = 'history_artikel';
+        $form_data  = array(
+            'agent'      => $agent,
+            'ipaddr'     => $ipaddr,
+            'id_artikel' => $id_artikel,
+            'userid'     => $userid,
+            'date'       => $this->common_variable->getTimeNow()
+        );
+        $this->MY_Model->tambah($form_data, $table);
+
+        $count      = $this->MY_Model->count('id_history', 'history_artikel', array('id_artikel' => $id_artikel))->i;
+        $form_data  = array('countShow' => $count);
+        $where      = array('id_artikel' => $id_artikel);
+        $this->MY_Model->update($form_data, $where, $this->table);
+    }
+    function getArtikelPopular()
+    {
+        $orderby    = 'countShow';
+        return $this->MY_Model->getDataOrderbyLimitDESC($this->table, $orderby, 3);
     }
     function getArtikel($id)
     {
