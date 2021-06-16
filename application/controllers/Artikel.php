@@ -25,7 +25,7 @@ class Artikel extends CI_Controller
         $data['content']    = 'public/article';
         // var_dump($data['kanan']->result_array());
         $this->load->view('templates/public', $data);
-        // $this->MY_Model->insert_activity(current_url());
+        $this->MY_Model->insert_activity(current_url());
     }
     public function show()
     {
