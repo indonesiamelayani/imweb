@@ -37,7 +37,7 @@ class Artikel extends CI_Controller
         $kategori   = $this->input->post('kategori');
         $judul      = $this->input->post('judul');
         $isi        = $this->input->post('isi');
-        $user       = $_SESSION['username'];
+        $user       = $_SESSION['nama'];
         $now        = date('Y-m-d H:i:s');
         $table      = 'artikel';
         $filename   = implode("|", $_FILES['file']['name']);
