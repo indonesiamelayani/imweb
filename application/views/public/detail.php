@@ -31,7 +31,7 @@
             <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-4 col-sm-12">
-                  <img src="<?php echo base_url() . 'files/' . $image ?>" class="w-100" alt="...">
+                  <img src="<?php echo base_url() . 'files/' . $image ?>" class="w-100" style="height: 90px;" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body py-1">
