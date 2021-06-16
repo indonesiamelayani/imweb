@@ -30,10 +30,16 @@ class Artikel extends CI_Controller
     }
     public function show()
     {
-        $id     = $this->uri->segment(3);
-        // echo $id;
+        $id                 = $this->uri->segment(3);
+        $data['utama']      = $this->getArtikel($id);
         $data['content']    = 'public/detail';
+        // var_dump($data['artikel']);
         $this->load->view('templates/public', $data);
+    }
+    function getArtikel($id)
+    {
+        $where = array('id_artikel' => $id);
+        return $this->MY_Model->singleData($this->table, $where);
     }
     function getFavArtikel()
     {
