@@ -54,7 +54,7 @@ class Home extends CI_Controller
     $form_data  = array('count' => $count);
     $where      = array('id' => $id_opsi);
     $this->MY_Model->update($form_data, $where, 'polling');
-    redirect('home');
+    redirect($_SERVER['HTTP_REFERER']);
   }
   function getInfoOpsi($id_judul)
   {
