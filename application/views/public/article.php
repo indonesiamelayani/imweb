@@ -19,8 +19,8 @@
     <div class="col-md-7 col-sm-12 mb-3">
       <img class="img-header w-100" src="<?php echo base_url() . "files/" .  $besar->image ?>" style="height: 455px;" alt="">
       <div class="position-relative d-block" style="top: -9%;">
-        <a class="text-dark nav-link position-absolute px-2 d-inline-block" href="#">
-          <h5><?php echo $besar->judul ?></h5>
+        <a class="text-dark nav-link position-absolute px-2 d-inline-block" href="<?php echo base_url('artikel/show/') . $besar->id_artikel ?>">
+          <h5><?php echo word_limiter($besar->judul, 8)  ?></h5>
         </a>
         <div class="shadow-box" style="top: -7%;"></div>
       </div>
@@ -28,11 +28,12 @@
     <div class="col-md-5 col-sm-12">
       <div class="row">
         <?php foreach ($kanan->result_array() as $i) {
+          $id     = $i['id_artikel'];
           $image  = $i['image'];
           $judul  = $i['judul'];
           $isi    = $i['isi'];
           $jam    = $i['created_date'];
-          $komen  = $i['countComment'];
+          $komen  = isset($i['countComment']) ? $i['countComment'] : 0;
         ?>
 
           <div class="col-12">
@@ -43,9 +44,9 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body py-1" style="padding-right: 0 !important;">
-                    <h5 class="card-title size-18"><a class="nav-link nopadding" href="#"><?php echo $judul ?></a></h5>
+                    <h5 class="card-title size-18"><a class="nav-link nopadding" href="<?php echo base_url('artikel/show/') . $id ?>"><?php echo $judul ?></a></h5>
                     <p class="card-text size-14">
-                      Pengendara yang melintas di Jalan Raya Jogja-Magelang, Yogyakarta, dihadang petugas Satgas COVID-19. Pelintas wajib menunjukan surat keterangan bebas Corona.
+                      <?php echo word_limiter($isi, 23) ?>
                     </p>
                     <div class="row" style="font-size: 12px;">
                       <div class="col-8">
@@ -53,7 +54,7 @@
                         <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> <?php echo $komen ?></small>
                       </div>
                       <div class="col-4 text-end">
-                        <a href="#" class="btn btn-sm btn-danger bg-blue border-0">Readmore</a>
+                        <a href="<?php echo base_url('artikel/show/') . $id ?>" class="btn btn-sm btn-danger bg-blue border-0">Readmore</a>
                       </div>
                     </div>
                   </div>
@@ -63,33 +64,6 @@
             </div>
           </div>
         <?php } ?>
-        <!-- <div class="col-12">
-          <div class="card border-0 mb-3 bg-transparent" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="assets/img/logo-im.jpg" class="w-100 h-141" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body py-1" style="padding-right: 0 !important;">
-                  <h5 class="card-title size-18"><a class="nav-link nopadding" href="#">Pemkot Bekasi Targetkan Lampu Jalan di Kayuringin Nyala Minggu Ini</a></h5>
-                  <p class="card-text size-14">
-                    Pemerintah Kota (Pemkot) Bekasi telah memperbaiki lampu jalan di Jl Kh Noer Ali, Bekasi, tepatnya di RW 07 Kelurahan Kayuringin. Sebagian lampu jalan di jalan itu disebut sudah menyala.
-                  </p>
-                  <div class="row" style="font-size: 12px;">
-                    <div class="col-8">
-                      <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                      <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> 90</small>
-                    </div>
-                    <div class="col-4 text-end">
-                      <a href="#" class="btn btn-sm btn-danger bg-blue border-0">Readmore</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="nopadding" />
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -100,32 +74,56 @@
 <div class="container row-2 my-3">
   <div class="row">
     <div class="col-md-3 col-sm-12 position-relative my-2">
-      <img src="assets/img/logo-im.jpg" class="w-100 h-240" alt="">
+      <img src="<?php echo base_url() . "files/" .  $politik->image ?>" class="w-100 h-240" alt="">
       <div class="position-absolute" style="top: 20px;">
-        <div class="badge bg-danger text-wrap py-2 my-auto px-auto size-20" style="width: 6rem;">Politik</div>
+        <div class="badge bg-danger text-wrap py-2 my-auto px-auto size-20" style="width: 6rem;">
+          <?php echo $politik->kategori ?>
+        </div>
       </div>
-      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;"><a class="text-dark nav-link" href="#">Imlekan Bareng PDIP, Puan Ungkit Kebijakan Libur dari Megawati</a></div>
+      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;">
+        <a class="text-dark nav-link" href="<?php echo base_url('artikel/show/') . $politik->id_artikel ?>">
+          <?php echo $politik->judul ?>
+        </a>
+      </div>
     </div>
     <div class="col-md-3 col-sm-12 position-relative my-2">
-      <img src="assets/img/logo-im.jpg" class="w-100 h-240" alt="">
+      <img src="<?php echo base_url() . "files/" .  $pelayanan->image ?>" class="w-100 h-240" alt="">
       <div class="position-absolute" style="top: 20px;">
-        <div class="badge bg-danger text-wrap py-2 my-auto px-auto w-100 size-20" style="width: 6rem;">Pelayanan</div>
+        <div class="badge bg-danger text-wrap py-2 my-auto px-auto w-100 size-20" style="width: 6rem;">
+          <?php echo $pelayanan->kategori ?>
+        </div>
       </div>
-      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;"><a class="text-dark nav-link" href="#">Kapolres Muncul di Pasar, Imbau Warga Taati Prokes</a></div>
+      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;">
+        <a class="text-dark nav-link" href="<?php echo base_url('artikel/show/') . $pelayanan->id_artikel ?>">
+          <?php echo $pelayanan->judul ?>
+        </a>
+      </div>
     </div>
     <div class="col-md-3 col-sm-12 position-relative my-2">
-      <img src="assets/img/logo-im.jpg" class="w-100 h-240" alt="">
+      <img src="<?php echo base_url() . "files/" .  $digilife->image ?>" class="w-100 h-240" alt="">
       <div class="position-absolute" style="top: 20px;">
-        <div class="badge bg-danger text-wrap py-2 my-auto px-auto size-20" style="width: 6rem;">Digilife</div>
+        <div class="badge bg-danger text-wrap py-2 my-auto px-auto size-20" style="width: 6rem;">
+          <?php echo $digilife->kategori ?>
+        </div>
       </div>
-      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;"><a class="text-dark nav-link" href="#">Tetap Produktif saat COVID-19, Tren Digital Diprediksi Meningkat</a></div>
+      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;">
+        <a class="text-dark nav-link" href="<?php echo base_url('artikel/show/') . $digilife->id_artikel ?>">
+          <?php echo $digilife->judul ?>
+        </a>
+      </div>
     </div>
     <div class="col-md-3 col-sm-12 position-relative my-2">
-      <img src="assets/img/logo-im.jpg" class="w-100 h-240" alt="">
+      <img src="<?php echo base_url() . "files/" .  $keamanan->image ?>" class="w-100 h-240" alt="">
       <div class="position-absolute" style="top: 20px;">
-        <div class="badge bg-danger text-wrap py-2 my-auto px-auto w-100 size-20" style="width: 6rem;">Keamanan</div>
+        <div class="badge bg-danger text-wrap py-2 my-auto px-auto w-100 size-20" style="width: 6rem;">
+          <?php echo $keamanan->kategori ?>
+        </div>
       </div>
-      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;"><a class="text-dark nav-link" href="#">Jenderal Kopassus Penjaga Papua Sambangi 3 Markas Pasukan di Biak</a></div>
+      <div class="text-center position-absolute fw-bold article-shadow mx-3" style="bottom: 5%;">
+        <a class="text-dark nav-link" href="<?php echo base_url('artikel/show/') . $keamanan->id_artikel ?>">
+          <?php echo $keamanan->judul ?>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -134,95 +132,44 @@
 <div class="container">
   <div class="row mb-3">
     <div class="col-md-8">
-      <div class="card border-0 mb-3 bg-transparent w-100">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/img/logo-im.jpg" class="w-100" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body py-1" style="padding-right: 0 !important;">
-              <h5 class="card-title" style="font-size: 18px;"><a class="nav-link nopadding" href="#">Potret Penyekatan di Perbatasan
-                  Yogyakarta</a></h5>
-              <p class="card-text" style="font-size: 14px;">
-                Pengendara yang melintas di Jalan Raya Jogja-Magelang, Yogyakarta, dihadang petugas Satgas COVID-19. Pelintas wajib menunjukan surat keterangan bebas Corona.
-              </p>
-              <div class="row" style="font-size: 12px;">
-                <div class="col-8">
-                  <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                  <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> 90</small>
+      <?php
+      foreach ($baru->result_array() as $i) {
+        $id     = $i['id_artikel'];
+        $image  = $i['image'];
+        $judul  = $i['judul'];
+        $isi    = $i['isi'];
+        $jam    = $i['created_date'];
+        $komen  = isset($i['countComment']) ? $i['countComment'] : 0;
+      ?>
+        <div class="card border-0 mb-3 bg-transparent w-100">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="<?php echo base_url() . "files/" .  $image ?>" class="w-100" style="height: 140px;" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body py-1" style="padding-right: 0 !important;">
+                <h5 class="card-title" style="font-size: 18px;">
+                  <a class="nav-link nopadding" href="<?php echo base_url('artikel/show/') . $id ?>">
+                    <?php echo $judul ?>
+                  </a>
+                </h5>
+                <p class="card-text" style="font-size: 14px;">
+                  <?php echo word_limiter($isi, 20) ?>
+                </p>
+                <div class="row" style="font-size: 12px;">
+                  <div class="col-8">
+                    <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> <?php echo date('H:i - d M Y', strtotime($jam)) ?></small>
+                    <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> <?php echo $komen ?></small>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <hr class="nopadding" />
         </div>
-        <hr class="nopadding" />
-      </div>
-      <div class="card border-0 mb-3 bg-transparent w-100">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/img/logo-im.jpg" class="w-100" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body py-1" style="padding-right: 0 !important;">
-              <h5 class="card-title" style="font-size: 18px;"><a class="nav-link nopadding" href="#">Pemkot Bekasi Targetkan Lampu Jalan di Kayuringin Nyala Minggu Ini</a></h5>
-              <p class="card-text" style="font-size: 14px;">
-                Pemerintah Kota (Pemkot) Bekasi telah memperbaiki lampu jalan di Jl Kh Noer Ali, Bekasi, tepatnya di RW 07 Kelurahan Kayuringin. Sebagian lampu jalan di jalan itu disebut sudah menyala.
-              </p>
-              <div class="row" style="font-size: 12px;">
-                <div class="col-8">
-                  <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                  <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> 90</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="nopadding" />
-      </div>
-      <div class="card border-0 mb-3 bg-transparent w-100">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/img/logo-im.jpg" class="w-100" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body py-1" style="padding-right: 0 !important;">
-              <h5 class="card-title" style="font-size: 18px;"><a class="nav-link nopadding" href="#">Pemkot Bekasi Targetkan Lampu Jalan di Kayuringin Nyala Minggu Ini</a></h5>
-              <p class="card-text" style="font-size: 14px;">
-                Pemerintah Kota (Pemkot) Bekasi telah memperbaiki lampu jalan di Jl Kh Noer Ali, Bekasi, tepatnya di RW 07 Kelurahan Kayuringin. Sebagian lampu jalan di jalan itu disebut sudah menyala.
-              </p>
-              <div class="row" style="font-size: 12px;">
-                <div class="col-8">
-                  <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                  <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> 90</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="nopadding" />
-      </div>
-      <div class="card border-0 mb-3 bg-transparent w-100">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/img/logo-im.jpg" class="w-100" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body py-1" style="padding-right: 0 !important;">
-              <h5 class="card-title" style="font-size: 18px;"><a class="nav-link nopadding" href="#">Pemkot Bekasi Targetkan Lampu Jalan di Kayuringin Nyala Minggu Ini</a></h5>
-              <p class="card-text" style="font-size: 14px;">
-                Bupati Aceh Utara Muhammad Thaib menyatakan tidak punya anggaran untuk membangun jalan aspal menuju desa transmigran, Buket Hagu. Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR)
-              </p>
-              <div class="row" style="font-size: 12px;">
-                <div class="col-8">
-                  <small class="text-muted mr-2"><img src="assets/img/ic-clock.png" alt=""> 09:25 - 12 Feb 2021</small>
-                  <small class="text-muted"><img src="assets/img/ic-comment.png" alt=""> 90</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="nopadding" />
-      </div>
+      <?php
+      }
+      ?>
     </div>
     <div class="col-md-4 col-sm-12">
       <div class="row">
