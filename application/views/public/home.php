@@ -44,136 +44,133 @@
             </ol>
             <div class="carousel-inner">
               <?php foreach ($info->result_array() as $i) {
-          $id     = $i['id_infografis'];
-          $image  = $i['image'];
-        ?>
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="<?php echo base_url() . "files/" . $image ?>" alt="First slide">
-              </div>
-              <?php }?>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+                $id     = $i['id_infografis'];
+                $image  = $i['image'];
+              ?>
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="<?php echo base_url() . "files/" . $image ?>" alt="First slide">
+                </div>
+              <?php } ?>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- row 2 close -->
+      <!-- row 2 close -->
 
-    <!-- row 3 -->
-    <div class="bg-white">
+      <!-- row 3 -->
+      <div class="bg-white">
+        <div class="container row-3 my-3">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <img src="<?php echo base_url() . "assets/img/" . $desc->image ?>" class="w-100" height="254" alt="">
+            </div>
+            <div class="col-md-6 col-sm-12 my-4">
+              <h3 class="header-team d-inline">Indonesia Melayani</h3>
+              <p>
+                <?php echo word_limiter($desc->deskripsi, 48) ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- row 3 close -->
+
+      <!-- row 4 -->
       <div class="container row-3 my-3">
         <div class="row">
+          <div class="col-12">
+            <h3 class="my-3">Polling</h3>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-6 col-sm-12">
-            <img src="<?php echo base_url() . "assets/img/" . $desc->image ?>" class="w-100" height="254" alt="">
+            <label><?php echo $poll1->judul_polling ?></label>
+            <div class="row">
+              <div class="col-md-6 col-sm-12 py-2">
+                <form action="<?php echo base_url('home/pilih_polling') ?>" method="post">
+                  <?php
+                  foreach ($poll1_opsi->result_array() as $i) {
+                    $id       = $i['id'];
+                    $nm_opsi  = $i['nm_opsi'];
+                  ?>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="<?php echo $id ?>" value="<?php echo $id ?>" name="id_opsi1" class="custom-control-input">
+                      <label class="custom-control-label" for="<?php echo $id ?>"><?php echo $nm_opsi ?></label>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                  <button class="btn btn-sm btn-danger">Vote</button>
+                </form>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div id="needs" style="width: 200px; height: 200px;"></div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-6 col-sm-12 my-4">
-            <h3 class="header-team d-inline">Indonesia Melayani</h3>
-            <p>
-              <?php echo word_limiter($desc->deskripsi, 48) ?>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- row 3 close -->
+          <div class="col-md-6 col-sm-12">
+            <label><?php echo $poll2->judul_polling ?></label>
+            <div class="row">
+              <div class="col-md-6 col-sm-12 py-2">
+                <form action="<?php echo base_url('home/pilih_polling') ?>" method="post">
+                  <?php
+                  foreach ($poll2_opsi->result_array() as $i) {
+                    $id       = $i['id'];
+                    $nm_opsi  = $i['nm_opsi'];
+                  ?>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="<?php echo $id ?>" value="<?php echo $id ?>" name="id_opsi1" class="custom-control-input">
+                      <label class="custom-control-label" for="<?php echo $id ?>"><?php echo $nm_opsi ?></label>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                  <button class="btn btn-sm btn-danger">Vote</button>
+                </form>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div id="workshop" style="width: 200px; height: 200px;"></div>
+              </div>
+            </div>
 
-    <!-- row 4 -->
-    <div class="container row-3 my-3">
-      <div class="row">
-        <div class="col-12">
-          <h3 class="my-3">Polling</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-12">
-          <label>Data apa yg anda butuhkan:</label>
-          <div class="row">
-            <div class="col-md-6 col-sm-12 py-2">
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Keuangan</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input bg-danger">
-                <label class="custom-control-label" for="customRadio2">Nasabah</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input bg-danger">
-                <label class="custom-control-label" for="customRadio3">Kerusakan Barang</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input bg-danger">
-                <label class="custom-control-label" for="customRadio4">Pemasukan</label>
-              </div>
-              <button class="btn btn-sm btn-danger">Vote</button>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <div id="needs" style="width: 200px; height: 200px;"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <label>Workshop/Pelatihan apa yg anda butuhkan:</label>
-          <div class="row">
-            <div class="col-md-6 col-sm-12 py-2">
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Komputer</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input bg-danger">
-                <label class="custom-control-label" for="customRadio2">Menjahit</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input bg-danger">
-                <label class="custom-control-label" for="customRadio3">Budidaya Ikan</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input bg-danger">
-                <label class="custom-control-label" for="customRadio4">Budidaya Tanaman</label>
-              </div>
-              <button class="btn btn-sm btn-danger">Vote</button>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <div id="workshop" style="width: 200px; height: 200px;"></div>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- row 4 close -->
+      <!-- row 4 close -->
 
-    <!-- row 5 -->
-    <div class="container row-5 my-3">
-      <div class="row text-center">
-        <div class="col-12">
-          <h3>Latest <span class="text-danger">Articles</span></h3>
+      <!-- row 5 -->
+      <div class="container row-5 my-3">
+        <div class="row text-center">
+          <div class="col-12">
+            <h3>Latest <span class="text-danger">Articles</span></h3>
+          </div>
         </div>
-      </div>
-      <div class="row mx-auto">
-        <?php foreach ($kanan->result_array() as $i) {
-          $id     = $i['id_artikel'];
-          $image  = $i['image'];
-          $judul  = $i['judul'];
-          $isi    = $i['isi'];
-        ?>
-          <div class="col-md-3 col-sm-12 my-2">
-            <div class="card">
-              <img src="<?php echo base_url() . "files/" .  $image ?>" class="card-img-top w-100" style="height: 100px;" alt="...">
-              <div class="card-body">
-                <p class="card-text"><?php echo word_limiter($isi, 15) ?></p>
-                <a href="<?php echo base_url('artikel/show/') . $id ?>" class="nav-link text-end link-danger" style="margin-right:0 !important;">> Read More</a>
+        <div class="row mx-auto">
+          <?php foreach ($baru->result_array() as $i) {
+            $id     = $i['id_artikel'];
+            $image  = $i['image'];
+            $judul  = $i['judul'];
+            $isi    = $i['isi'];
+          ?>
+            <div class="col-md-3 col-sm-12 my-2">
+              <div class="card">
+                <img src="<?php echo base_url() . "files/" .  $image ?>" class="card-img-top w-100" style="height: 100px;" alt="...">
+                <div class="card-body">
+                  <p class="card-text"><?php echo word_limiter($isi, 15) ?></p>
+                  <a href="<?php echo base_url('artikel/show/') . $id ?>" class="nav-link text-end link-danger" style="margin-right:0 !important;">> Read More</a>
+                </div>
               </div>
             </div>
-          </div>
-        <?php } ?>
+          <?php } ?>
+        </div>
       </div>
-    </div>
     </div>
     <!-- row 5 close -->

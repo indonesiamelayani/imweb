@@ -24,10 +24,51 @@ class Home extends CI_Controller
     $data['keamanan']   = $this->getArtikelByKategori('Keamanan');
     $data['besar']      = $this->getFavArtikel();
     $data['kanan']      = $this->getArtikelKanan($data['besar']->id_artikel);
+    $data['poll1']      = $this->getListPolling();
+    $data['poll1_opsi'] = $this->getInfoOpsi($data['poll1']->id);
+    $data['poll2']      = $this->getListPolling($data['poll1']->id);
+    $data['poll2_opsi'] = $this->getInfoOpsi($data['poll2']->id);
     $data['content']    = 'public/home';
-    // var_dump($data['kanan']->result_array());
+    // var_dump($data['poll2-opsi']->result_array());
     $this->load->view('templates/public', $data);
     $this->MY_Model->insert_activity(current_url());
+  }
+  function pilih_polling()
+  {
+    $id_opsi    = $this->input->post('id_opsi1');
+    // $userid     = isset($_SESSION['username']) ? trim($_SESSION['username']) : '';
+    $agent      = (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
+    $ipaddr     = $this->libs->get_client_ip();
+    $table      = 'result_polling';
+    $form_data  = array(
+      'agent'      => $agent,
+      'ipaddr'     => $ipaddr,
+      'id'         => $id_opsi,
+      'date'       => $this->common_variable->getTimeNow()
+    );
+    $this->MY_Model->tambah($form_data, $table);
+
+    $count      = $this->MY_Model->count('id_result', $table, array('id' => $id_opsi))->i;
+    $form_data  = array('count' => $count);
+    $where      = array('id' => $id_opsi);
+    $this->MY_Model->update($form_data, $where, 'polling');
+    redirect('home');
+  }
+  function getInfoOpsi($id_judul)
+  {
+    $where = array('id_judul' => $id_judul);
+    return $this->MY_Model->getList('polling', $where);
+  }
+  function getListPolling($id1 = null)
+  {
+    $table   = 'polling';
+    $orderby = 'id';
+    if ($id1 == null) {
+      $where  = array('is_judul' => 1, 'expired_date' => null);
+    } else {
+      $where  = array('is_judul' => 1, 'expired_date' => null, 'id !=' => $id1);
+    }
+    return $this->MY_Model->getMaxListWhereOrderbyDESC('*', $table, $where, $orderby);
   }
   public function show()
   {
