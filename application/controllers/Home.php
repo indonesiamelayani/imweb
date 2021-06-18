@@ -48,7 +48,9 @@ class Home extends CI_Controller
     );
     $this->MY_Model->tambah($form_data, $table);
 
-    $count      = $this->MY_Model->count('id_result', $table, array('id' => $id_opsi))->i;
+    $count      = $this->MY_Model->countDistinct('ipaddr', $table, array('id' => $id_opsi))->i;
+    // echo $count;
+    // die();
     $form_data  = array('count' => $count);
     $where      = array('id' => $id_opsi);
     $this->MY_Model->update($form_data, $where, 'polling');

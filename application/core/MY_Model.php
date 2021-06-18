@@ -284,7 +284,7 @@ class MY_Model extends CI_Model
     }
     function countDistinct($field, $table, $where)
     {
-        return $this->db->select('count(DISTINCT(' . $field . ')) as i')->from($table)->where($where)->limit(1)->get()->row();
+        return $this->db->select('count(DISTINCT ' . $field . ') as i')->from($table)->where($where)->limit(1)->get()->row();
     }
     function count($field, $table, $where)
     {
