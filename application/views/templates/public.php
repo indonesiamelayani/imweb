@@ -35,11 +35,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto font-weight-bold">
-                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('artikel') ?>">ARTIKEL</a>
-                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('infografis') ?>">INFO GRAFIS</a>
-                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('bankdata') ?>">BANK DATA</a>
-                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('lokakarya') ?>">LOKAKARYA</a>
-                    <a class=" nav-item nav-link text-bold" href="<?php echo base_url('tentang') ?>">TENTANG IM</a>
+                    <a class="nav-item nav-link text-bold <?= $this->uri->segment(1) == "artikel"  ? "active" : "" ?>" href="<?php echo base_url('artikel') ?>">ARTIKEL</a>
+                    <a class="nav-item nav-link text-bold <?= $this->uri->segment(1) == "infografis"  ? "active" : "" ?>" href="<?php echo base_url('infografis') ?>">INFO GRAFIS</a>
+                    <a class="nav-item nav-link text-bold <?= $this->uri->segment(1) == "bankdata"  ? "active" : "" ?>" href="<?php echo base_url('bankdata') ?>">BANK DATA</a>
+                    <a class="nav-item nav-link text-bold <?= $this->uri->segment(1) == "lokakarya"  ? "active" : "" ?>" href="<?php echo base_url('lokakarya') ?>">LOKAKARYA</a>
+                    <a class="nav-item nav-link text-bold <?= $this->uri->segment(1) == "tentang"  ? "active" : "" ?>" href="<?php echo base_url('tentang') ?>">TENTANG IM</a>
                 </div>
             </div>
         </div>

@@ -47,9 +47,6 @@
                 <div class="top-left-part" style="background-color: white;">
                     <a class="logo">
                         <b>IM</b>
-                        <!-- <b>
-                            <img src="<?php echo base_url() ?>assets/plugins/images/logo.png" alt="home">
-                        </b> -->
                         <span>
                             <img src="<?php echo base_url() ?>assets/plugins/images/logo-text.png" alt="homepage" class="dark-logo">
                         </span>
@@ -93,19 +90,6 @@
                     <div class="dropdown user-pro-body">
                         <div class="profile-image">
                             <img src="<?php echo base_url() ?>assets/plugins/images/logo_im.png" alt="user-img" class="img-circle" style="z-index: 99;">
-                            <!-- <a href="javascript:void(0);" class="dropdown-toggle u-dropdown text-blue" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="badge badge-danger">
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu animated flipInY">
-                                <li><a href="javascript:void(0);"><i class="fa fa-user"></i> Profile</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-inbox"></i> Inbox</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-cog"></i> Account Settings</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href=""><i class="fa fa-power-off"></i> Logout</a></li>
-                            </ul> -->
                         </div>
                         <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);" style="color: #EA5330 !important;"> Indonesia Melayani</a></p>
                     </div>
@@ -130,12 +114,6 @@
                                 <span class="hide-menu"> Artikel </span>
                             </a>
                         </li>
-                        <!--                        <li>
-                            <a href="#" aria-expanded="false">
-                                <i class="icon-screen-desktop fa-fw"></i>
-                                <span class="hide-menu"> Banner </span>
-                            </a>
-                        </li>-->
                         <li>
                             <a href="<?php echo base_url('admin/infografisnew') ?>" aria-expanded="false">
                                 <i class="icon-chart fa-fw"></i>
@@ -220,26 +198,6 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
-
-    <!--Morris JavaScript -->
-    <!-- <script src="<?php echo base_url() ?>assets/plugins/components/raphael/raphael-min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/components/morrisjs/morris.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/morris-data.js"></script> -->
-
-
-    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> -->
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script> -->
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
-    <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script> -->
-
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
-
-    <!-- end - This is for export functionality only -->
     <script>
         $(function() {
             $('#myTable').DataTable();
