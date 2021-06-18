@@ -56,7 +56,7 @@
                 foreach ($info_opsi->result_array() as $i) {
                     $id_opsi    = $i['id'];
                     $nm_opsi    = $i['nm_opsi'];
-                    $count_opsi = $this->MY_Model->count('id_result', 'result_polling', array('id' => $id_opsi))->i;
+                    $count_opsi = $i['count'];
                 ?> {
                         name: '<?php echo $nm_opsi ?>',
                         y: <?php echo $count_opsi ?>,
