@@ -18,6 +18,26 @@ class Polling extends CI_Controller
         $data['content']    = 'polling';
         $this->load->view('templates/default', $data); ////asd
     }
+    function tambahOpsi()
+    {
+        $id_judul   = $this->input->post('id_judul');
+        $nm_opsi    = $this->input->post('nm_opsi');
+        $count      = count($nm_opsi);
+        $now        = $this->common_variable->getTimeNow();
+
+        //record opsi
+        for ($i = 0; $i < $count; $i++) {
+            $id_opsi    = $this->MY_Model->count_data($this->table) + 1;
+            $form_data  = array(
+                'id'            => $id_opsi,
+                'id_judul'      => $id_judul,
+                'nm_opsi'       => $nm_opsi[$i],
+                'created_date'  => $now,
+            );
+            $this->MY_Model->tambah($form_data, $this->table);
+        }
+        redirect('admin/polling');
+    }
     function tambah()
     {
         $id_judul   = $this->MY_Model->count_data($this->table) + 1;

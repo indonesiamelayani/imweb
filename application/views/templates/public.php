@@ -17,63 +17,7 @@
 
     <!-- google chart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load("current", {
-            packages: ["corechart"]
-        });
-        google.charts.setOnLoadCallback(needs);
-        google.charts.setOnLoadCallback(workshop);
 
-        function needs() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Keuangan', 29],
-                ['Nasabah', 10],
-                ['Kerusakan Barang', 31],
-                ['Pemasukan', 30]
-            ]);
-
-            var options = {
-                pieHole: 0.4,
-                backgroundColor: {
-                    fill: 'transparent'
-                },
-                legend: 'none',
-                chartArea: {
-                    width: '80%',
-                    height: '80%'
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('needs'));
-            chart.draw(data, options);
-        }
-
-        function workshop() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Komputer', 29],
-                ['Menjahit', 10],
-                ['Budidaya Ikan', 31],
-                ['Budidaya Tanaman', 30]
-            ]);
-
-            var options = {
-                pieHole: 0.4,
-                backgroundColor: {
-                    fill: 'transparent'
-                },
-                legend: 'none',
-                chartArea: {
-                    width: '80%',
-                    height: '80%'
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('workshop'));
-            chart.draw(data, options);
-        }
-    </script>
 
     <title>Indonesia Melayani</title>
 </head>
