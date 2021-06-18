@@ -83,8 +83,8 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="<?php echo base_url() ?>assets/img/logo.png" alt="">
+            <a class="navbar-brand" href="<?php echo base_url('home') ?>">
+                <img src="<?php echo base_url() ?>assets/img/logo3.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -93,9 +93,9 @@
                 <div class="navbar-nav ml-auto font-weight-bold">
                     <a class="nav-item nav-link text-bold" href="<?php echo base_url('artikel') ?>">ARTIKEL</a>
                     <a class="nav-item nav-link text-bold" href="<?php echo base_url('infografis') ?>">INFO GRAFIS</a>
-                    <a class="nav-item nav-link text-bold" href="bank_data.html">BANK DATA</a>
-                    <a class="nav-item nav-link text-bold" href="lokakarya.html">LOKAKARYA</a>
-                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('tentang') ?>">TENTANG IM</a>
+                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('bankdata') ?>">BANK DATA</a>
+                    <a class="nav-item nav-link text-bold" href="<?php echo base_url('lokakarya') ?>">LOKAKARYA</a>
+                    <a class=" nav-item nav-link text-bold" href="<?php echo base_url('tentang') ?>">TENTANG IM</a>
                 </div>
             </div>
         </div>

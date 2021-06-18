@@ -137,6 +137,16 @@ class MY_Model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    function getListNoWhereOrderbyLimit($table, $orderby, $limit)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->order_by($orderby, 'DESC');
+        $this->db->limit($limit);
+        $query = $this->db->get();
+        return $query;
+    }
     function getListDataJoinOrderby($table, $orderby, $destination, $join)
     {
         $this->db->select('*');

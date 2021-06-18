@@ -137,9 +137,15 @@
                             </a>
                         </li>-->
                         <li>
-                            <a href="<?php echo base_url('admin/infografis') ?>" aria-expanded="false">
+                            <a href="<?php echo base_url('admin/infografisnew') ?>" aria-expanded="false">
                                 <i class="icon-chart fa-fw"></i>
                                 <span class="hide-menu"> Infografis </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('admin/bankdata') ?>" aria-expanded="false">
+                                <i class="icon-chart fa-fw"></i>
+                                <span class="hide-menu"> Bank Data </span>
                             </a>
                         </li>
                         <li>
