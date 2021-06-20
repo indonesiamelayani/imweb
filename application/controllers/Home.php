@@ -17,7 +17,8 @@ class Home extends CI_Controller
   {
     $data['baru']       = $this->getArtikelbaru();
     $data['desc']       = $this->getInfoDesc();
-    $data['info']       = $this->getInfografis();
+    $data['info_aktif'] = $this->getInfografisActive();
+    $data['info']       = $this->getInfografis($data['info_aktif']->id_infografis);
     $data['politik']    = $this->getArtikelByKategori('Politik');
     $data['digilife']   = $this->getArtikelByKategori('Digilife');
     $data['pelayanan']  = $this->getArtikelByKategori('Pelayanan');
@@ -29,14 +30,13 @@ class Home extends CI_Controller
     $data['poll2']      = $this->getListPolling($data['poll1']->id);
     $data['poll2_opsi'] = $this->getInfoOpsi($data['poll2']->id);
     $data['content']    = 'public/home';
-    // var_dump($data['poll2-opsi']->result_array());
+    // var_dump($data['info_aktif']);
     $this->load->view('templates/public', $data);
     $this->MY_Model->insert_activity(current_url());
   }
   function pilih_polling()
   {
     $id_opsi    = $this->input->post('id_opsi1');
-    // $userid     = isset($_SESSION['username']) ? trim($_SESSION['username']) : '';
     $agent      = (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
     $ipaddr     = $this->libs->get_client_ip();
     $table      = 'result_polling';
@@ -49,8 +49,6 @@ class Home extends CI_Controller
     $this->MY_Model->tambah($form_data, $table);
 
     $count      = $this->MY_Model->countDistinct('ipaddr', $table, array('id' => $id_opsi))->i;
-    // echo $count;
-    // die();
     $form_data  = array('count' => $count);
     $where      = array('id' => $id_opsi);
     $this->MY_Model->update($form_data, $where, 'polling');
@@ -89,10 +87,18 @@ class Home extends CI_Controller
     $where  = array('id' => $id);
     return $this->MY_Model->singleData($table, $where);
   }
-  function getInfografis()
+  function getInfografis($id_new)
   {
     $table  = 'infografis';
-    return $this->MY_Model->getListData($table);
+    $where = array('id_infografis !=' => $id_new);
+    $orderby = 'created_date';
+    return $this->MY_Model->getListOrderbyDESCLimit($table, $where, $orderby, 2);
+  }
+  function getInfografisActive()
+  {
+    $table  = 'infografis';
+    $orderby    = 'created_date';
+    return $this->MY_Model->singleOrderbyDESC($table, $orderby);
   }
   function save_history($id_artikel)
   {
