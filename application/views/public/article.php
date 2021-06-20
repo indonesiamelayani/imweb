@@ -176,7 +176,7 @@
         <div class="col-md-12 col-sm-12">
           <div class="row">
             <div class="col-12 my-2">
-              <iframe src="//rss.bloople.net/?url=https%3A%2F%2Fwww.antaranews.com%2Frss%2Fterkini.xml&detail=30&limit=1&showtitle=false&showicon=true&showempty=true&type=html"></iframe>
+              <iframe src="https://mediaindonesia.com/feed" width="300" height="300" frameBorder="0"></iframe>
               <!-- <img class="w-100" src="assets/img/img-info1.png" alt=""> -->
             </div>
             <div class="col-12">
