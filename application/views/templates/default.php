@@ -102,12 +102,12 @@
                                 <span class="hide-menu"> Home </span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url('admin/halaman') ?>" aria-expanded="false">
                                 <i class="icon-docs fa-fw"></i>
                                 <span class="hide-menu"> Halaman </span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="<?php echo base_url('admin/artikel') ?>" aria-expanded="false">
                                 <i class="icon-notebook fa-fw"></i>
@@ -118,6 +118,12 @@
                             <a href="<?php echo base_url('admin/infografisnew') ?>" aria-expanded="false">
                                 <i class="icon-chart fa-fw"></i>
                                 <span class="hide-menu"> Infografis </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('admin/iklan') ?>" aria-expanded="false">
+                                <i class="icon-notebook fa-fw"></i>
+                                <span class="hide-menu"> Iklan </span>
                             </a>
                         </li>
                         <li>
@@ -142,6 +148,12 @@
                             <a href="<?php echo base_url() ?>admin/tentang" aria-expanded="false">
                                 <i class="icon-info fa-fw"></i>
                                 <span class="hide-menu"> Tentang IM </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url() ?>admin/pengaturan" aria-expanded="false">
+                                <i class="icon-info fa-fw"></i>
+                                <span class="hide-menu"> Pengaturan </span>
                             </a>
                         </li>
                         <li>

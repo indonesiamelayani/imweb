@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller
+class Home extends Footer
 {
   public $table = 'artikel';
   public $kat   = ['Politik', 'Digilife', 'Pelayanan', 'Keamanan'];

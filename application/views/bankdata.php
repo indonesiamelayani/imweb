@@ -2,9 +2,9 @@
   <!-- ===== Page-Container ===== -->
   <div class="container-fluid">
     <div class="white-box">
-      <h3 class="box-title m-b-0">bankdata</h3>
+      <h3 class="box-title m-b-0">Bankdata</h3>
       <button type="button" style="margin: 12px 0px;" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#modaltambah" data-whatever="@mdo">
-        Tambah bankdata
+        Tambah Bankdata
       </button>
       <div class="table-responsive">
         <table id="myTable" class="table table-striped">

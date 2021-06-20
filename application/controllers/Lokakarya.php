@@ -20,9 +20,22 @@ class Lokakarya extends CI_Controller
     $data['poll2']      = $this->getListPolling($data['poll1']->id);
     $data['poll2_opsi'] = $this->getInfoOpsi($data['poll2']->id);
     $data['content']    = 'result_poll';
+    $data['iklan']    = $this->getIklan();
+    $data['iklan_active']    = $this->getIklanActive();
     $data['content']    = 'public/lokakarya';
     $this->load->view('templates/public', $data);
     $this->MY_Model->insert_activity(current_url());
+  }
+  function getIklanActive()
+  {
+    $table  = 'iklan';
+    $orderby    = 'created_date';
+    return $this->MY_Model->singleOrderbyDESC($table, $orderby);
+  }
+  function getIklan()
+  {
+    $table  = 'iklan';
+    return $this->MY_Model->getListData($table);
   }
   function getListPolling($id1 = null)
   {
