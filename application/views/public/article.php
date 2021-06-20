@@ -184,7 +184,6 @@ $Parser = new FeedParser();
               $Parser->parse('https://rss.tempo.co/nasional');
               $channels = $Parser->getChannels();
               $items = $Parser->getItems();
-
               ?>
               <div class="col-md-12 col-sm-12">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -195,18 +194,29 @@ $Parser = new FeedParser();
                   </ol>
                   <h5>Berita Terkini</h5>
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img class="d-block w-100" src="assets/img/logo-im.jpg" height="178px">
-                    </div>
-                    <?php foreach (array_slice($items, 0, 5) as $item) : ?>
-                      <div class="carousel-item">
-                        <img class="d-block w-100" src="<?php echo $item['IMG']; ?>" height="178px">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5><?php echo $item['TITLE']; ?></h5>
-                          <a href="<?php echo $item['LINK']; ?>" class="btn btn-sm btn-danger">Baca</a>
+                    <?php
+                    $idx = 0;
+                    foreach (array_slice($items, 0, 5) as $item) :
+                      if ($idx == 0) { ?>
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" src="<?php echo $item['IMG']; ?>" height="178px">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5><?php echo $item['TITLE']; ?></h5>
+                            <a href="<?php echo $item['LINK']; ?>" class="btn btn-sm btn-danger">Baca</a>
+                          </div>
                         </div>
-                      </div>
-                    <?php endforeach; ?>
+                      <?php
+                      } else { ?>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" src="<?php echo $item['IMG']; ?>" height="178px">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5><?php echo $item['TITLE']; ?></h5>
+                            <a href="<?php echo $item['LINK']; ?>" class="btn btn-sm btn-danger">Baca</a>
+                          </div>
+                        </div>
+                    <?php }
+                      $idx++;
+                    endforeach; ?>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -230,7 +240,3 @@ $Parser = new FeedParser();
   </div>
 </div>
 </div>
-
-
-
-
