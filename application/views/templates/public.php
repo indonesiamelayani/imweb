@@ -82,7 +82,7 @@
                     <h5 class="mb-0">Follow Us</h5>
 
                     <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/facebook.png" width="30" height="30" alt="facebook logo"></a>
-                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/instagram.png" width="30" height="30" alt="instagram logo"></a>
+                    <a href="https://www.instagram.com/indonesiamelayani/"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/instagram.png" width="30" height="30" alt="instagram logo"></a>
                     <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/twitter.png" width="30" height="30" alt="twitter logo"></a>
                     <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/youtube.png" width="30" height="30" alt="youtube logo"></a>
                 </div>
