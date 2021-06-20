@@ -47,6 +47,10 @@ class MY_Model extends CI_Model
     {
         return $this->db->select('*')->from($table)->where($where)->limit(1)->get()->row();
     }
+    function singleOrderbyDESC($table, $orderby)
+    {
+        return $this->db->select('*')->from($table)->order_by($orderby, 'DESC')->limit(1)->get()->row();
+    }
 
     function getList($table, $where)
     {
