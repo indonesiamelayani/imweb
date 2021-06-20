@@ -20,13 +20,12 @@ class Halaman extends CI_Controller
 
         $this->MY_Model->insert_activity(current_url());
     }
-    
+
     function edit()
     {
         $judul      = $this->input->post('judul');
         $deskripsi  = $this->input->post('deskripsi');
         $count      = count($_FILES['files']['name']);
-        $a = 0;
         $filename   = $_FILES['files']['name'];
         $temp       = $_FILES['files']['tmp_name'];
         $location   = "files/";
@@ -37,7 +36,7 @@ class Halaman extends CI_Controller
                 $id         = 1;
                 $table      = 'halaman';
                 $field      = 'image';
-                $key        = "$.img".$i;
+                $key        = "$.img" . $i;
                 $this->MY_Model->update_jsonimg($table, $field, $key, $filename[$i], $judul, $deskripsi, $time, $id);
             } else {
                 $form_data = array(
@@ -45,12 +44,11 @@ class Halaman extends CI_Controller
                     'deskripsi'     => $deskripsi,
                     'updated'       => $time
                 );
-            $where      = array('id' => 1);
-            $table      = 'halaman';
-            $this->MY_Model->update($form_data, $where, $table);
+                $where      = array('id' => 1);
+                $table      = 'halaman';
+                $this->MY_Model->update($form_data, $where, $table);
             }
-            
-    }
+        }
         redirect('admin/halaman');
     }
 }

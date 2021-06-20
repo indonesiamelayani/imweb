@@ -88,10 +88,11 @@
 <div class="container row-2 my-3">
   <div class="row">
     <div class="col-md-8 col-sm-12">
-      <h3>DATA</h3>
-      <h3 class="text-danger">INDONESIA</h3>
+      <?php $halaman = explode(' ', $data->judul) ?>
+      <h3><?php echo $halaman[0] ?></h3>
+      <h3 class="text-danger"><?php echo $halaman[1] ?></h3>
       <p>
-        By sponsoring a child, you can change his or her life towards a better future and allow Peduli Anak to continue providing support and opening doors to more children in need.
+        <?php echo $data->deskripsi ?>
       </p>
     </div>
     <div class="col-md-4 col-sm-12">
@@ -102,17 +103,24 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="<?php echo base_url() . "files/" . $info_aktif->image ?>" height="178px">
-          </div>
-          <?php foreach ($info->result_array() as $i) {
-            $id     = $i['id_infografis'];
-            $image  = $i['image'];
-          ?>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="<?php echo base_url() . "files/" . $image ?>" height="178px">
-            </div>
-          <?php } ?>
+          <?php
+          $idx = 0;
+          $json = $data->image;
+          $obj = json_decode($json, TRUE);
+          foreach ($obj as $key => $value) {
+            if ($idx == 0) { ?>
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="<?php echo base_url() . "files/" . $value ?>" height="178px">
+              </div>
+            <?php } else { ?>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="<?php echo base_url() . "files/" . $value ?>" height="178px">
+              </div>
+            <?php }
+            ?>
+          <?php
+            $idx++;
+          } ?>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

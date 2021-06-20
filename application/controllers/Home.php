@@ -15,10 +15,11 @@ class Home extends CI_Controller
 
   public function index()
   {
+    $data['data']       = $this->MY_Model->singleData('halaman', array('id' => 1));
     $data['baru']       = $this->getArtikelbaru();
     $data['desc']       = $this->getInfoDesc();
-    $data['info_aktif'] = $this->getInfografisActive();
-    $data['info']       = $this->getInfografis($data['info_aktif']->id_infografis);
+    // $data['info_aktif'] = $this->getInfografisActive();
+    // $data['info']       = $this->getInfografis($data['info_aktif']->id_infografis);
     $data['politik']    = $this->getArtikelByKategori('Politik');
     $data['digilife']   = $this->getArtikelByKategori('Digilife');
     $data['pelayanan']  = $this->getArtikelByKategori('Pelayanan');
