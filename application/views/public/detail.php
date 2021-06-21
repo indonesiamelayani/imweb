@@ -56,13 +56,64 @@
           ?>
         </div>
         <div class="col-md-12 col-sm-12">
-          <h4 class="text-danger">INFO TERKINI</h4>
           <div class="row">
-            <div class="col-12 my-2">
-              <img src="<?php echo base_url() ?>assets/img/img-info1.png" alt="">
-            </div>
-            <div class="col-12">
-              <img src="<?php echo base_url() ?>assets/img/img-info2.png" alt="">
+            <div class="col-md-12 col-sm-12">
+              <div class="row">
+                <div class="col-12 my-2">
+                  <?php
+                  $Parser->parse('https://rss.tempo.co/nasional');
+                  $channels = $Parser->getChannels();
+                  $items = $Parser->getItems();
+                  ?>
+                  <div class="col-md-12 col-sm-12">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      </ol>
+                      <h4 class="text-danger">INFO TERKINI</h4>
+                      <div class="carousel-inner">
+                        <?php
+                        $idx = 0;
+                        foreach (array_slice($items, 0, 5) as $item) :
+                          if ($idx == 0) { ?>
+                            <div class="carousel-item active">
+                              <img class="d-block w-100" src="<?php echo $item['IMG']; ?>" height="178px">
+                              <div class="carousel-caption d-none d-md-block">
+                                <h5><?php echo $item['TITLE']; ?></h5>
+                                <a href="<?php echo $item['LINK']; ?>" class="btn btn-sm btn-danger">Baca</a>
+                              </div>
+                            </div>
+                          <?php
+                          } else { ?>
+                            <div class="carousel-item">
+                              <img class="d-block w-100" src="<?php echo $item['IMG']; ?>" height="178px">
+                              <div class="carousel-caption d-none d-md-block">
+                                <h5><?php echo $item['TITLE']; ?></h5>
+                                <a href="<?php echo $item['LINK']; ?>" class="btn btn-sm btn-danger">Baca</a>
+                              </div>
+                            </div>
+                        <?php }
+                          $idx++;
+                        endforeach; ?>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-12">
+                <img class="w-100" src="assets/img/img-info2.png" alt="">
+              </div>
             </div>
           </div>
         </div>
