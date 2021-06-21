@@ -80,11 +80,15 @@
                 <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <h5 class="mb-0">Follow Us</h5>
-
-                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/facebook.png" width="30" height="30" alt="facebook logo"></a>
-                    <a href="https://www.instagram.com/indonesiamelayani/"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/instagram.png" width="30" height="30" alt="instagram logo"></a>
-                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/twitter.png" width="30" height="30" alt="twitter logo"></a>
-                    <a href="#"><img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/youtube.png" width="30" height="30" alt="youtube logo"></a>
+                    <?php
+                    $footer = $this->MY_Model->getListDataOrderby('pengaturan', 'id')->result_array();
+                    foreach ($footer as $i) { ?>
+                        <a href="<?php echo $i['deskripsi'] ?>" target="_blank">
+                            <img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/<?php echo strtolower($i['judul']) ?>.png" width="30" height="30" alt="<?php echo $i['judul'] ?>">
+                        </a>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <!--Grid column-->
             </div>

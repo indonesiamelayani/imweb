@@ -3,15 +3,18 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Libs {
+class Libs
+{
 
     var $CI;
 
-    function __construct() {
-        $this->CI = & get_instance();
+    function __construct()
+    {
+        $this->CI = &get_instance();
     }
 
-        function get_client_ip() {
+    function get_client_ip()
+    {
         $ipaddress = '';
         if (isset($_SERVER['HTTP_CLIENT_IP']))
             $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
@@ -30,5 +33,4 @@ class Libs {
 
         return $ipaddress;
     }
-
-  }
+}

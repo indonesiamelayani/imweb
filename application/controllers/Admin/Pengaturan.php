@@ -34,22 +34,22 @@ class Pengaturan extends CI_Controller
   function tambah()
   {
     $judul      = $this->input->post('judul');
-    $deskripsi      = $this->input->post('deskripsi');
+    $deskripsi  = $this->input->post('deskripsi');
     $user       = $_SESSION['username'];
     $now        = date('Y-m-d H:i:s');
     $table      = 'pengaturan';
 
     //check agar tidak terjadi duplikasi file
-      $form_data  = array(
-        'judul'         => $judul,
-        'deskripsi'         => $deskripsi,
-        'updated'  => $now,
-        'created_by'    => $user
-      );
-      $this->MY_Model->tambah($form_data, $table);
-      redirect('admin/pengaturan/index');
-    }
-  
+    $form_data  = array(
+      'judul'         => $judul,
+      'deskripsi'         => $deskripsi,
+      'updated'  => $now,
+      'created_by'    => $user
+    );
+    $this->MY_Model->tambah($form_data, $table);
+    redirect('admin/pengaturan/index');
+  }
+
   function edit()
   {
     $id         = $this->input->post('id');
@@ -58,11 +58,11 @@ class Pengaturan extends CI_Controller
     $now        = date('Y-m-d H:i:s');
     $table      = 'pengaturan';
 
-      $form_data  = array(
-        'judul'         => $judul,
-        'deskripsi'         => $deskripsi,
-        'updated'   => $now
-      );
+    $form_data  = array(
+      'judul'         => $judul,
+      'deskripsi'         => $deskripsi,
+      'updated'   => $now
+    );
     $where      = array('id' => $id);
     $this->MY_Model->update($form_data, $where, $table);
     redirect('admin/pengaturan/index');

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends Footer
+class Home extends CI_Controller
 {
   public $table = 'artikel';
   public $kat   = ['Politik', 'Digilife', 'Pelayanan', 'Keamanan'];
@@ -18,8 +18,6 @@ class Home extends Footer
     $data['data']       = $this->MY_Model->singleData('halaman', array('id' => 1));
     $data['baru']       = $this->getArtikelbaru();
     $data['desc']       = $this->getInfoDesc();
-    // $data['info_aktif'] = $this->getInfografisActive();
-    // $data['info']       = $this->getInfografis($data['info_aktif']->id_infografis);
     $data['politik']    = $this->getArtikelByKategori('Politik');
     $data['digilife']   = $this->getArtikelByKategori('Digilife');
     $data['pelayanan']  = $this->getArtikelByKategori('Pelayanan');
@@ -31,7 +29,7 @@ class Home extends Footer
     $data['poll2']      = $this->getListPolling($data['poll1']->id);
     $data['poll2_opsi'] = $this->getInfoOpsi($data['poll2']->id);
     $data['content']    = 'public/home';
-    // var_dump($data['info_aktif']);
+    // var_dump($data['foooter']);
     $this->load->view('templates/public', $data);
     $this->MY_Model->insert_activity(current_url());
   }
