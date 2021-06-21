@@ -60,8 +60,7 @@
                     <h5>Main Office & Project</h5>
                     <span style="font-size: 14px;">
                         Yayasan Indonesia Melayani<br />
-                        Jl. Raya Gandul No. 12A Blok 2 rt 01 Rw. 06, Kel. Gandul, Kec. Cinere, Depok <br />
-                        telp. 021 21277626
+                        <?php echo $this->MY_Model->singleData('pengaturan', array('id' => '7'))->deskripsi; ?>
                     </span>
                 </div>
                 <!--Grid column-->
@@ -82,7 +81,7 @@
                     <h5 class="mb-0">Follow Us</h5>
                     <?php
                     $footer = $this->MY_Model->getListDataOrderby('pengaturan', 'id')->result_array();
-                    foreach ($footer as $i) { ?>
+                    foreach (array_slice($footer, 0, 4) as $i) { ?>
                         <a href="<?php echo $i['deskripsi'] ?>" target="_blank">
                             <img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/<?php echo strtolower($i['judul']) ?>.png" width="30" height="30" alt="<?php echo $i['judul'] ?>">
                         </a>
@@ -96,7 +95,7 @@
             <div class="row mt-4">
                 <div class="col-12" style="font-size: 12px;">
                     <!-- Copyright -->
-                    © 2005-2021 <a class="text-white" href="https://mdbootstrap.com/">indonesia melayani</a>
+                    © <?php echo $this->MY_Model->singleData('pengaturan', array('id' => '6'))->deskripsi; ?> <a class="text-white" href="#"><?php echo $this->MY_Model->singleData('pengaturan', array('id' => '5'))->deskripsi; ?></a>
                     <!-- Copyright -->
                 </div>
             </div>
