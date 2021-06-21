@@ -33,9 +33,9 @@
                                     <button type="button" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modaledit<?php echo $id ?>" data-whatever="@mdo">
                                         Ubah
                                     </button>
-                                    <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus<?php echo $id ?>" data-whatever="@mdo">
+                                    <!-- <button type="button" class="btn btn-danger  btn-rounded" data-toggle="modal" data-target="#modalhapus<?php echo $id ?>" data-whatever="@mdo">
                                         Hapus
-                                    </button>
+                                    </button> -->
                                 </td>
                             </tr>
                         <?php }
