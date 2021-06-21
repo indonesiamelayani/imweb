@@ -1,3 +1,7 @@
+<?php
+include('FeedParser.php');
+$Parser = new FeedParser();
+?>
 <div class="container row-1 my-3">
   <div class="row">
     <div class="col-12 col-md-7">
