@@ -102,12 +102,12 @@
                                 <span class="hide-menu"> Home </span>
                             </a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="<?php echo base_url('admin/halaman') ?>" aria-expanded="false">
                                 <i class="icon-docs fa-fw"></i>
                                 <span class="hide-menu"> Halaman </span>
                             </a>
-                        </li> -->
+                        </li>
                         <li>
                             <a href="<?php echo base_url('admin/artikel') ?>" aria-expanded="false">
                                 <i class="icon-notebook fa-fw"></i>
