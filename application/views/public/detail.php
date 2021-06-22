@@ -60,6 +60,7 @@ $Parser = new FeedParser();
           ?>
         </div>
         <div class="col-md-12 col-sm-12">
+          <h4 class="text-danger">INFO TERKINI</h4>
           <div class="row">
             <div class="col-md-12 col-sm-12">
               <div class="row">
@@ -76,7 +77,6 @@ $Parser = new FeedParser();
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                       </ol>
-                      <h4 class="text-danger">INFO TERKINI</h4>
                       <div class="carousel-inner">
                         <?php
                         $idx = 0;

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class InfografisNew extends CI_Controller
+class Infografisnew extends CI_Controller
 {
   public function __construct()
   {
@@ -12,7 +12,7 @@ class InfografisNew extends CI_Controller
   public function index()
   {
     $data['infografis']    = $this->getListInfografis();
-    $data['content']    = 'infografisNew';
+    $data['content']    = 'infografisnew';
     $this->load->view('templates/default', $data); ////asd
   }
   // function getCountKomentar()
@@ -53,7 +53,7 @@ class InfografisNew extends CI_Controller
 
       move_uploaded_file($temp, $location . $filename);
       $this->MY_Model->tambah($form_data, $table);
-      redirect('admin/infografisNew/index');
+      redirect('admin/infografisnew/index');
     } else {
       echo "file sudah ada";
     }
@@ -85,7 +85,7 @@ class InfografisNew extends CI_Controller
     // die();
     $where      = array('id_infografis' => $id);
     $this->MY_Model->update($form_data, $where, $table);
-    redirect('admin/infografisNew/index');
+    redirect('admin/infografisnew/index');
   }
   function hapus() #hard delete/clean delete
   {
@@ -93,6 +93,6 @@ class InfografisNew extends CI_Controller
     $where  = array('id_infografis' => $id);
     $table  = 'infografis';
     $this->MY_Model->hapus($where, $table);
-    redirect('admin/infografisNew/index');
+    redirect('admin/infografisnew/index');
   }
 }
