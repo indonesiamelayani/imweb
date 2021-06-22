@@ -80,8 +80,8 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <h5 class="mb-0">Follow Us</h5>
                     <?php
-                    $footer = $this->MY_Model->getListDataOrderby('pengaturan', 'id')->result_array();
-                    foreach (array_slice($footer, 0, 4) as $i) { ?>
+                    $footer = $this->MY_Model->getListOrderby('pengaturan', array('id <=' => 4), 'id')->result_array();
+                    foreach ($footer as $i) { ?>
                         <a href="<?php echo $i['deskripsi'] ?>" target="_blank">
                             <img class="mx-2 my-2" src="<?php echo base_url() ?>assets/img/<?php echo strtolower($i['judul']) ?>.png" width="30" height="30" alt="<?php echo $i['judul'] ?>">
                         </a>
