@@ -3,54 +3,96 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Infografis extends CI_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('core/MY_Model');
-        if ($_SESSION['username'] == null) redirect(base_url('login'));
-    }
-    public function index()
-    {
-        $table              = 'halaman';
-        $id                 = 2;
-        $where              = array('id' => $id);
-        $data['halaman']    = $this->MY_Model->singleData($table, $where);
-        $data['content']    = 'infografis';
-        $this->load->view('templates/default', $data);
+  public function __construct()
+  {
+    parent::__construct();
+    $this->load->model('core/MY_Model');
+    if ($_SESSION['username'] == null) redirect(base_url('login'));
+  }
+  public function index()
+  {
+    $data['infografis']    = $this->getListInfografis();
+    $data['content']    = 'infografis';
+    $this->load->view('templates/default', $data); ////asd
+  }
+  // function getCountKomentar()
+  // {
+  //     // $id_artikel = '';
+  //     $table = 'artikel';
+  //     // $where = array('id_artikel' => $id_artikel);
+  //     $orderby = 'artikel.id_artikel';
+  //     $destination = 'komentar';
+  //     $join = '' . $destination . '.id_artikel=' . '' . $table . '.id_artikel';
+  //     return $this->MY_Model->getListDataJoinOrderby($table, $orderby, $destination, $join);
+  // }
+  function getListInfografis()
+  {
+    $table   = 'infografis';
+    $orderby = 'created_date';
+    return $this->MY_Model->getListDataOrderby($table, $orderby);
+  }
+  function tambah()
+  {
+    $judul      = $this->input->post('judul');
+    $user       = $_SESSION['username'];
+    $now        = date('Y-m-d H:i:s');
+    $table      = 'infografis';
+    $filename   = implode("|", $_FILES['file']['name']);
+    $temp       = implode("|", $_FILES['file']['tmp_name']);
+    $location   = "files/";
 
-        $this->MY_Model->insert_activity(current_url());
+    //check agar tidak terjadi duplikasi file
+    $check      = $this->MY_Model->check('infografis', array('image' => $filename));
+    if ($check == FALSE) {
+      $form_data  = array(
+        'judul'         => $judul,
+        'created_date'  => $now,
+        'created_by'    => $user,
+        'image'         => $filename
+      );
+
+      move_uploaded_file($temp, $location . $filename);
+      $this->MY_Model->tambah($form_data, $table);
+      redirect('admin/infografis/index');
+    } else {
+      echo "file sudah ada";
     }
-    
-    function edit()
-    {
-        $judul      = $this->input->post('judul');
-        $deskripsi  = $this->input->post('deskripsi');
-        $count      = count($_FILES['files']['name']);
-        $a = 0;
-        $filename   = $_FILES['files']['name'];
-        $temp       = $_FILES['files']['tmp_name'];
-        $location   = "files/";
-        $time       = $this->common_variable->getTimeNow();
-        for ($i = 0; $i < $count; $i++) {
-            if (strlen($filename[$i]) != 0) {
-                move_uploaded_file($temp[$i], $location . $filename[$i]);
-                $id         = 2;
-                $table      = 'halaman';
-                $field      = 'image';
-                $key        = "$.img".$i;
-                $this->MY_Model->update_jsonimg($table, $field, $key, $filename[$i], $judul, $deskripsi, $time, $id);
-            } else {
-                $form_data = array(
-                    'judul'         => $judul,
-                    'deskripsi'     => $deskripsi,
-                    'updated'       => $time
-                );
-            $where      = array('id' => 2);
-            $table      = 'halaman';
-            $this->MY_Model->update($form_data, $where, $table);
-            }
-            
+  }
+  function edit()
+  {
+    $id         = $this->input->post('id_infografis');
+    $judul      = $this->input->post('judul');
+    $now        = date('Y-m-d H:i:s');
+    $table      = 'infografis';
+    $filename   = implode("|", $_FILES['file']['name']);
+    $temp       = implode("|", $_FILES['file']['tmp_name']);
+    $location   = "files/";
+
+    if ($filename == null) {
+      $form_data  = array(
+        'judul'         => $judul,
+        'last_update'   => $now
+      );
+    } else {
+      $form_data  = array(
+        'judul'         => $judul,
+        'last_update'   => $now,
+        'image'         => $filename
+      );
+      move_uploaded_file($temp, $location . $filename);
     }
-        redirect('admin/infografis');
-    }
+    // var_dump($form_data);
+    // die();
+    $where      = array('id_infografis' => $id);
+    $this->MY_Model->update($form_data, $where, $table);
+    redirect('admin/infografis/index');
+  }
+  function hapus() #hard delete/clean delete
+  {
+    $id     = $this->input->post('id_infografis');
+    $where  = array('id_infografis' => $id);
+    $table  = 'infografis';
+    $this->MY_Model->hapus($where, $table);
+    redirect('admin/infografis/index');
+  }
 }
