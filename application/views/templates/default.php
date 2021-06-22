@@ -152,7 +152,7 @@
                         </li>
                         <li>
                             <a href="<?php echo base_url() ?>admin/pengaturan" aria-expanded="false">
-                                <i class="icon-info fa-fw"></i>
+                                <i class="icon-settings fa-fw"></i>
                                 <span class="hide-menu"> Pengaturan </span>
                             </a>
                         </li>
